@@ -21,12 +21,37 @@ Roat downloads online video, converts and cleans up your own media (including 20
 
 ## Download
 
+### Windows
+
 | Platform | File | Notes |
 |---|---|---|
 | Windows 10/11 (x64) | [Roat-0.4.1-win-x64.exe](https://github.com/angelitojusay/roat/releases/download/v0.4.1/Roat-0.4.1-win-x64.exe) | Installer (recommended) |
 | Windows 10/11 (x64) | [Roat-0.4.1-portable.exe](https://github.com/angelitojusay/roat/releases/download/v0.4.1/Roat-0.4.1-portable.exe) | Portable, no install |
+
+### macOS
+
+**Option A — 1-command install (recommended, skips Gatekeeper).** Open Terminal and run:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/angelitojusay/roat/main/install.sh | bash
+```
+
+The [script](install.sh) downloads the latest release for your Mac (Apple Silicon or Intel), verifies it against `SHA256SUMS-macos.txt` and stops if it doesn't match, quits Roat if it is running, installs `Roat.app` into Applications, clears the download quarantine and opens Roat. Nothing is downloaded through the browser, so macOS shows no "damaged" warning.
+
+**Option B — manual DMG download.**
+
+| Platform | File | Notes |
+|---|---|---|
 | macOS 13+, Apple Silicon (M1 and later) | [Roat-0.4.1-mac-arm64.dmg](https://github.com/angelitojusay/roat/releases/download/v0.4.1/Roat-0.4.1-mac-arm64.dmg) | Disk image |
 | macOS 13+, Intel | [Roat-0.4.1-mac-x64.dmg](https://github.com/angelitojusay/roat/releases/download/v0.4.1/Roat-0.4.1-mac-x64.dmg) | Disk image |
+
+Drag Roat to Applications and open it. Roat isn't notarized yet, so if macOS says **"Roat is damaged and can't be opened"**, run this in Terminal; it fixes it immediately, then open Roat normally:
+
+```bash
+xattr -cr /Applications/Roat.app
+```
+
+The message comes from the browser's download quarantine, not from a broken file.
 
 SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roat/releases/download/v0.4.1/SHA256SUMS-windows.txt) · [SHA256SUMS-macos.txt](https://github.com/angelitojusay/roat/releases/download/v0.4.1/SHA256SUMS-macos.txt). All releases are listed on the [Releases page](https://github.com/angelitojusay/roat/releases). Inside the app, **Settings → About → Check for Updates** tells you when a new version is out, and **Install Update Now** (from v0.4.1) downloads, verifies and installs it for you.
 
@@ -57,13 +82,7 @@ Only download content you have the right to download.
 
 **Windows.** Roat isn't code-signed yet, so SmartScreen may show "Windows protected your PC". Click **More info**, then **Run anyway**. To keep Roat on the taskbar, right-click its icon while it runs and choose **Pin to taskbar**.
 
-**macOS.** Drag Roat to Applications and open it. Roat isn't notarized yet, so if macOS says **"Roat is damaged and can't be opened"**, run this in Terminal; it fixes it immediately, then open Roat normally:
-
-```bash
-xattr -cr /Applications/Roat.app
-```
-
-The message comes from the browser's download quarantine, not from a broken file. Later updates installed with **Settings → About → Install Update Now** don't go through the browser, so they open without it.
+**macOS.** With the 1-command install, Roat opens right away. After a manual DMG download, use the `xattr -cr /Applications/Roat.app` fix above if macOS calls Roat "damaged". Later updates installed with **Settings → About → Install Update Now** don't go through the browser, so they open without it.
 
 The first time you use a workspace, Roat offers to download the tools it needs (yt-dlp, ffmpeg, whisper models and so on) from their official releases. It checks each file's SHA-256 before using it.
 
