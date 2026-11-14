@@ -42,11 +42,13 @@ Only download content you have the right to download.
 
 **Windows.** Roat isn't code-signed yet, so SmartScreen may show "Windows protected your PC". Click **More info**, then **Run anyway**.
 
-**macOS.** Roat isn't notarized yet, so macOS may say the app "is damaged" or "can't be opened". Drag Roat to Applications, then run this once in Terminal and open Roat normally:
+**macOS.** Drag Roat to Applications and open it. Roat isn't notarized yet, so if macOS says **"Roat is damaged and can't be opened"**, run this in Terminal; it fixes it immediately, then open Roat normally:
 
 ```bash
 xattr -cr /Applications/Roat.app
 ```
+
+The message comes from the browser's download quarantine, not from a broken file.
 
 The first time you use a workspace, Roat offers to download the tools it needs (yt-dlp, ffmpeg, whisper models and so on) from their official releases. It checks each file's SHA-256 before using it.
 
