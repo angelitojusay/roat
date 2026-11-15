@@ -4,9 +4,20 @@
 
 Roat downloads online video, converts and cleans up your own media (including 200 GB+ cinema camera files), and transcribes speech. All of it happens on your computer. Nothing is uploaded, there are no accounts, and there is no telemetry.
 
-**[⬇ Download the latest release](https://github.com/angelitojusay/roat/releases/latest)** · current version **v0.8.0**
+**[⬇ Download the latest release](https://github.com/angelitojusay/roat/releases/latest)** · current version **v0.9.0**
 
 ## What's new
+
+**v0.9.0**
+- **Apple ProRes and Avid DNxHR masters and proxies.** Convert Video → MOV writes **ProRes** (422 Proxy, LT, 422, HQ, 4444) or **DNxHR** (LB, SQ, HQX) with every audio track as uncompressed **24-bit 48 kHz PCM**: smooth-scrubbing files for DaVinci Resolve, Final Cut Pro and Premiere, with a size-per-minute hint before you start.
+- **Variable to constant frame rate, HDR to SDR and .cube LUTs.** Lock phone and screen recordings (marked **VFR**) to a constant frame rate so they stay in sync in editors, map iPhone and camera **HDR** to standard BT.709 so it no longer looks grey or orange, and grade with a `.cube` LUT at 25–100 %.
+- **Auto-crop black bars.** **Auto-Detect Black Bars** finds letterbox or pillarbox bars in seconds and crops each file to its real picture.
+- **Chapters, tags, cover art and a privacy scrub.** **Chapters & Tags** writes YouTube-style chapters (or your transcript's 🚩 flags), title, artist, album, year and a cover image into a copy of the file without re-encoding, and **Strip Private Camera / GPS / EXIF Metadata** removes location, camera serials and dates. Trim, Split and Scenes call their fast mode **Lossless Instant Cut**.
+- **Translate to English and bilingual subtitles.** Transcribe's new **Translation Mode** can **Translate to English** or keep both languages on every line (**Bilingual Dual-Track**). Edit the original and the English side by side in the transcript editor, **Export Subtitles** as original, English or two-line bilingual **SRT / VTT**, and burn **bilingual captions** into the video. Roat Swift and Cinema Master translate offline.
+- **Add any subtitle file.** **Subtitle File** adds an `.srt`, `.vtt` or `.ass` to a video as a **toggleable track** in about a second (no re-encode), or **burns it in** with Roat's caption styles.
+- **Picture-in-picture and split screen.** **Multi-Cam / PiP** puts a webcam or guest camera in any corner (with an optional border), **side by side** as a 1920×1080 interview, or **stacked** as a 1080×1920 Short, with either recording's audio or both mixed.
+- **Broadcast voice EQ and de-esser.** Clean Up Audio's new **Voice Tone / EQ** adds **Warm Broadcast**, **Crisp Presence**, a **De-Esser** for harsh "s" sounds and an **80 Hz Rumble Cut**.
+- **Build your own workflows.** **Workflows → New Workflow** chains 2 or 3 steps of your choice (dead-air removal, black-end trimming, clean-up, convert, transcribe, 9:16 captions); watch folders can run them too. **Settings → Presets & Workflows** exports your presets and workflows as one `.json` to import on your other computer.
 
 **v0.8.0**
 - **Multi-step workflow chains.** The new **Workflows** mode in Media Studio runs a whole recipe from one click, each finished step feeding the next by itself: **Podcast Master & Transcript** (voice isolation at −16 LUFS → transcript with show notes), **Short-Form Clips Factory** (clean-up → transcript → 9:16 blurred-backdrop video with burned captions) and **Clean Cut Interview** (dead air removed → transcript). Queue cards show **Step 1/3**; a failed step stops the chain and **Retry** continues it. Watch folders can run a workflow on every new file.
@@ -53,8 +64,8 @@ Roat downloads online video, converts and cleans up your own media (including 20
 
 | Platform | File | Notes |
 |---|---|---|
-| Windows 10/11 (x64) | [Roat-0.8.0-win-x64.exe](https://github.com/angelitojusay/roat/releases/download/v0.8.0/Roat-0.8.0-win-x64.exe) | Installer (recommended) |
-| Windows 10/11 (x64) | [Roat-0.8.0-portable.exe](https://github.com/angelitojusay/roat/releases/download/v0.8.0/Roat-0.8.0-portable.exe) | Portable, no install |
+| Windows 10/11 (x64) | [Roat-0.9.0-win-x64.exe](https://github.com/angelitojusay/roat/releases/download/v0.9.0/Roat-0.9.0-win-x64.exe) | Installer (recommended) |
+| Windows 10/11 (x64) | [Roat-0.9.0-portable.exe](https://github.com/angelitojusay/roat/releases/download/v0.9.0/Roat-0.9.0-portable.exe) | Portable, no install |
 
 ### macOS
 
@@ -70,8 +81,8 @@ The [script](install.sh) downloads the latest release for your Mac (Apple Silico
 
 | Platform | File | Notes |
 |---|---|---|
-| macOS 13+, Apple Silicon (M1 and later) | [Roat-0.8.0-mac-arm64.dmg](https://github.com/angelitojusay/roat/releases/download/v0.8.0/Roat-0.8.0-mac-arm64.dmg) | Disk image |
-| macOS 13+, Intel | [Roat-0.8.0-mac-x64.dmg](https://github.com/angelitojusay/roat/releases/download/v0.8.0/Roat-0.8.0-mac-x64.dmg) | Disk image |
+| macOS 13+, Apple Silicon (M1 and later) | [Roat-0.9.0-mac-arm64.dmg](https://github.com/angelitojusay/roat/releases/download/v0.9.0/Roat-0.9.0-mac-arm64.dmg) | Disk image |
+| macOS 13+, Intel | [Roat-0.9.0-mac-x64.dmg](https://github.com/angelitojusay/roat/releases/download/v0.9.0/Roat-0.9.0-mac-x64.dmg) | Disk image |
 
 Drag Roat to Applications and open it. Roat isn't notarized yet, so if macOS says **"Roat is damaged and can't be opened"**, run this in Terminal; it fixes it immediately, then open Roat normally:
 
@@ -81,19 +92,22 @@ xattr -cr /Applications/Roat.app
 
 The message comes from the browser's download quarantine, not from a broken file.
 
-SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roat/releases/download/v0.8.0/SHA256SUMS-windows.txt) · [SHA256SUMS-macos.txt](https://github.com/angelitojusay/roat/releases/download/v0.8.0/SHA256SUMS-macos.txt). All releases are listed on the [Releases page](https://github.com/angelitojusay/roat/releases). Inside the app, **Settings → About → Check for Updates** tells you when a new version is out, and **Install Update Now** downloads, verifies and installs it for you.
+SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roat/releases/download/v0.9.0/SHA256SUMS-windows.txt) · [SHA256SUMS-macos.txt](https://github.com/angelitojusay/roat/releases/download/v0.9.0/SHA256SUMS-macos.txt). All releases are listed on the [Releases page](https://github.com/angelitojusay/roat/releases). Inside the app, **Settings → About → Check for Updates** tells you when a new version is out, and **Install Update Now** downloads, verifies and installs it for you.
 
 ## What Roat does
 
 ### 1. Media Studio
-- Convert video formats, including **AV1** (optionally to a **target file size** and with a **corner logo watermark**), compress to a target size or quality preset, extract audio, and convert audio. **Render 5s Preview** checks the result on 5 seconds first.
+- Convert video formats, including **AV1** (optionally to a **target file size** and with a **corner logo watermark**), and **ProRes / DNxHR** editing masters and proxies with 24-bit PCM audio, compress to a target size or quality preset, extract audio, and convert audio. **Render 5s Preview** checks the result on 5 seconds first.
 - **Trim / Cut** on a waveform with draggable handles and a preview, without re-encoding (or frame-accurate). **Merge Clips** that share a format. **Split Chapters** into numbered files from the file's chapters or pasted timestamps.
-- **Burn Captions** from a finished transcript, in three caption styles with placement, size and short-burst options.
+- **Burn Captions** from a finished transcript, in three caption styles with placement, size and short-burst options (or two-line bilingual captions). **Subtitle File** adds an `.srt` / `.vtt` / `.ass` as a toggleable track or burns it in.
+- **Grade and conform:** lock variable frame rate to CFR, tone-map HDR to SDR, apply a `.cube` LUT, and **auto-crop black bars**.
+- **Multi-Cam / PiP:** a webcam in any corner, a 50/50 side-by-side interview, or a 9:16 top / bottom split.
+- **Chapters & Tags:** bake chapters, tags and cover art into a copy without re-encoding, or strip GPS and camera metadata.
 - **Social reframe** to 9:16, 1:1 or 16:9 (blurred backdrop, centre crop or black bars) in Convert and Burn Captions.
 - **Mix Music** under a voice with automatic ducking, and **Audiogram** waveform videos for podcasts.
 - **Contact Sheet** grids of time-stamped frames, or the best thumbnail, as JPG or PNG. **GIF / WebP Loop** makes crisp animated loops for READMEs and docs.
 - **Scenes:** split a video at its scene cuts, or trim black and frozen frames off the ends. **Privacy Blur** blurs, pixelates or blacks out up to three boxes.
-- **Workflows:** one-click multi-step recipes (Podcast Master, Short-Form Clips Factory, Clean Cut Interview) where each finished step feeds the next.
+- **Workflows:** one-click multi-step recipes (Podcast Master, Short-Form Clips Factory, Clean Cut Interview), or **your own** 2–3 step workflows, where each finished step feeds the next.
 - **Stems & Channels:** every audio track as its own file, stereo split into left and right, or a one-sided recording centred. **Inspect Loudness** measures EBU R128 loudness and true peak with a plain verdict.
 - **Batches:** up to 50 files at once, one job each.
 - Built for **cinema camera files**: ProRes, DNxHR, 10-bit 4:2:2, and multi-track 24-bit audio in `.mov`/`.mxf`/`.mp4`. You choose which track or channel to use.
@@ -106,10 +120,12 @@ SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roa
 - **Transcript editor:** correct words, search, play any line from the recording, copy the full text, and save to re-export every file instantly (optionally with short-burst SRT captions).
 - **Edit by text:** cut, mute or bleep lines (or sweep away every filler word) and export the edited media; label speakers and rename them everywhere at once.
 - **Hand off and publish:** export the edit as an **FCPXML** or **EDL** timeline for Final Cut Pro, DaVinci Resolve or Premiere, copy **YouTube chapters**, or save **show notes** as Markdown.
+- **Translation Mode:** transcribe in the spoken language, **translate to English**, or keep both on every line (**bilingual**), with original, English and bilingual SRT / VTT exports.
 - Optional translation into 10 languages, and subtitles added back into the video (soft tracks or burned in, in your caption style).
 
 ### 3. Clean Up Audio
 - Voice Isolation (optionally with **DeepFilterNet3** neural noise removal), Podcast Enhance, and De-Hum & De-Hiss. Video is copied untouched.
+- **Voice Tone / EQ:** Warm Broadcast, Crisp Presence, De-Esser and an 80 Hz Rumble Cut.
 - **Remove Long Silences** cuts dead air from both audio and video.
 - **Transcribe after cleaning** queues a transcript of the cleaned file automatically.
 
@@ -125,8 +141,8 @@ Only download content you have the right to download.
 - **Send To…** on any finished job hands the file to another workspace, already filled in.
 - **Command palette:** **Ctrl+K** (or **Cmd+K**) jumps to any workspace or tool, even from plain English like *"hide my email"*, clears finished jobs, opens the output folder, or opens a transcript by name.
 - **Built-in help:** a **?** next to every tool (or **?** / **F1**) explains what it's for, how it works and what it writes.
-- **Custom presets:** save your Convert, Clean Up Audio and Transcribe settings under a name and apply them with one click.
-- **Watch folders:** new files dropped into a chosen folder are converted, cleaned up, transcribed or run through a workflow automatically, with your presets.
+- **Custom presets:** save your Convert, Clean Up Audio and Transcribe settings under a name and apply them with one click, and move them (with your workflows) to another computer as one `.json` file.
+- **Watch folders:** new files dropped into a chosen folder are converted, cleaned up, transcribed or run through a workflow (built-in or your own) automatically, with your presets.
 
 ## First launch
 
@@ -147,7 +163,7 @@ shasum -a 256 -c SHA256SUMS-macos.txt --ignore-missing
 Windows (PowerShell), then compare with `SHA256SUMS-windows.txt`:
 
 ```powershell
-Get-FileHash .\Roat-0.8.0-win-x64.exe -Algorithm SHA256
+Get-FileHash .\Roat-0.9.0-win-x64.exe -Algorithm SHA256
 ```
 
 ## Privacy
