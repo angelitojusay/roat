@@ -4,9 +4,14 @@
 
 Roat downloads online video, converts and cleans up your own media (including 200 GB+ cinema camera files), transcribes speech, and turns scripts and subtitles into natural voiceovers. All of it happens on your computer. Nothing is uploaded, there are no accounts, and there is no telemetry.
 
-**[⬇ Download the latest release](https://github.com/angelitojusay/roat/releases/latest)** · current version **v1.0.0**
+**[⬇ Download the latest release](https://github.com/angelitojusay/roat/releases/latest)** · current version **v1.0.1**
 
 ## What's new
+
+### v1.0.1
+- **Twelve voices for Voiceover & Dubbing.** Choose from twelve of Kokoro's best-rated English voices: **Heart** (the default), **Bella**, **Kore**, **Aoede**, **Sarah** and **Nicole**; **Fenrir**, **Puck** and **Michael**; and the British **Emma**, **George** and **Fable**.
+- **Clean broadcast endings.** Audio-only voiceovers now end with a soft fade and half a second of silence, so the last word never sounds cut off. Dubbed lines still start exactly on their cues.
+- **Says it like an editor.** **LUTs** is read as one word; **DNxHR**, **DNxHD** and **FCPXML** letter by letter; **NVENC**, **macOS** and **dBFS** the way editors say them.
 
 ### 🎉 v1.0.0: the flagship release
 
@@ -81,8 +86,8 @@ Roat downloads online video, converts and cleans up your own media (including 20
 
 | Platform | File | Notes |
 |---|---|---|
-| Windows 10/11 (x64) | [Roat-1.0.0-win-x64.exe](https://github.com/angelitojusay/roat/releases/download/v1.0.0/Roat-1.0.0-win-x64.exe) | Installer (recommended) |
-| Windows 10/11 (x64) | [Roat-1.0.0-portable.exe](https://github.com/angelitojusay/roat/releases/download/v1.0.0/Roat-1.0.0-portable.exe) | Portable, no install |
+| Windows 10/11 (x64) | [Roat-1.0.1-win-x64.exe](https://github.com/angelitojusay/roat/releases/download/v1.0.1/Roat-1.0.1-win-x64.exe) | Installer (recommended) |
+| Windows 10/11 (x64) | [Roat-1.0.1-portable.exe](https://github.com/angelitojusay/roat/releases/download/v1.0.1/Roat-1.0.1-portable.exe) | Portable, no install |
 
 ### macOS
 
@@ -98,8 +103,8 @@ The [script](install.sh) downloads the latest release for your Mac (Apple Silico
 
 | Platform | File | Notes |
 |---|---|---|
-| macOS 13+, Apple Silicon (M1 and later) | [Roat-1.0.0-mac-arm64.dmg](https://github.com/angelitojusay/roat/releases/download/v1.0.0/Roat-1.0.0-mac-arm64.dmg) | Disk image |
-| macOS 13+, Intel | [Roat-1.0.0-mac-x64.dmg](https://github.com/angelitojusay/roat/releases/download/v1.0.0/Roat-1.0.0-mac-x64.dmg) | Disk image |
+| macOS 13+, Apple Silicon (M1 and later) | [Roat-1.0.1-mac-arm64.dmg](https://github.com/angelitojusay/roat/releases/download/v1.0.1/Roat-1.0.1-mac-arm64.dmg) | Disk image |
+| macOS 13+, Intel | [Roat-1.0.1-mac-x64.dmg](https://github.com/angelitojusay/roat/releases/download/v1.0.1/Roat-1.0.1-mac-x64.dmg) | Disk image |
 
 Drag Roat to Applications and open it. Roat isn't notarized yet, so if macOS says **"Roat is damaged and can't be opened"**, run this in Terminal; it fixes it immediately, then open Roat normally:
 
@@ -109,7 +114,7 @@ xattr -cr /Applications/Roat.app
 
 The message comes from the browser's download quarantine, not from a broken file.
 
-SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roat/releases/download/v1.0.0/SHA256SUMS-windows.txt) · [SHA256SUMS-macos.txt](https://github.com/angelitojusay/roat/releases/download/v1.0.0/SHA256SUMS-macos.txt). All releases are listed on the [Releases page](https://github.com/angelitojusay/roat/releases). Inside the app, **Settings → About → Check for Updates** tells you when a new version is out, and **Install Update Now** downloads, verifies and installs it for you.
+SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roat/releases/download/v1.0.1/SHA256SUMS-windows.txt) · [SHA256SUMS-macos.txt](https://github.com/angelitojusay/roat/releases/download/v1.0.1/SHA256SUMS-macos.txt). All releases are listed on the [Releases page](https://github.com/angelitojusay/roat/releases). Inside the app, **Settings → About → Check for Updates** tells you when a new version is out, and **Install Update Now** downloads, verifies and installs it for you.
 
 ## What Roat does
 
@@ -119,7 +124,7 @@ SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roa
 - **Burn Captions** from a finished transcript, in three caption styles with placement, size and short-burst options (or two-line bilingual captions). **Subtitle File** adds an `.srt` / `.vtt` / `.ass` as a toggleable track or burns it in.
 - **Grade and conform:** lock variable frame rate to CFR, tone-map HDR to SDR, apply a `.cube` LUT, and **auto-crop black bars**.
 - **Multi-Cam / PiP:** a webcam in any corner, a 50/50 side-by-side interview, or a 9:16 top / bottom split, with **Auto-Sync** of the two cameras.
-- **Voiceover & Dubbing:** natural offline AI voices (**Kokoro-82M**) from a script with two-voice dialogue tags, a transcript or an SRT / VTT file, timed to the video, mastered to −16 LUFS, as audio or the video's new or ducked audio.
+- **Voiceover & Dubbing:** natural offline AI voices (**Kokoro-82M**, **12 curated English voices**) from a script with two-voice dialogue tags, a transcript or an SRT / VTT file, timed to the video, mastered to −16 LUFS with an automatic broadcast tail fade-out, as audio or the video's new or ducked audio.
 - **Timecode & Audio Sync:** stamp **SMPTE LTC** as the file's timecode, and replace the camera's scratch audio with an external recorder synced by timecode, LTC or **waveform matching**.
 - **Chapters & Tags:** bake chapters, tags and cover art into a copy without re-encoding, or strip GPS and camera metadata.
 - **Social reframe** to 9:16, 1:1 or 16:9 (blurred backdrop, centre crop or black bars) in Convert and Burn Captions.
@@ -183,7 +188,7 @@ shasum -a 256 -c SHA256SUMS-macos.txt --ignore-missing
 Windows (PowerShell), then compare with `SHA256SUMS-windows.txt`:
 
 ```powershell
-Get-FileHash .\Roat-1.0.0-win-x64.exe -Algorithm SHA256
+Get-FileHash .\Roat-1.0.1-win-x64.exe -Algorithm SHA256
 ```
 
 ## Privacy
