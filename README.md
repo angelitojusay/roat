@@ -1,3 +1,5 @@
+https://github.com/user-attachments/assets/92e8cd15-bb27-4dbf-9bf7-a7e2105e4bf7
+
 # Roat
 
 **Private, local-first desktop media studio, audio clean up, multi-language AI transcription and AI voiceover for Windows & macOS.**
