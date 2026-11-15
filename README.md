@@ -4,9 +4,19 @@
 
 Roat downloads online video, converts and cleans up your own media (including 200 GB+ cinema camera files), and transcribes speech. All of it happens on your computer. Nothing is uploaded, there are no accounts, and there is no telemetry.
 
-**[⬇ Download the latest release](https://github.com/angelitojusay/roat/releases/latest)** · current version **v0.6.0**
+**[⬇ Download the latest release](https://github.com/angelitojusay/roat/releases/latest)** · current version **v0.7.0**
 
 ## What's new
+
+**v0.7.0**
+- **Watch folders.** In **Settings → Watch Folders**, point Roat at up to five folders and choose what happens to new files: **Convert Video**, **Clean Up Audio** or **Transcribe**, with default options or one of your saved presets. Roat waits until a file has finished copying, queues it once (never again after a restart), leaves files that were already there alone, and puts the results in a **Roat Output** subfolder.
+- **Fit a video to a file size.** Convert Video's **Target File Size** takes **10 / 25 / 50 / 100 MB** or any size from 2 to 2000 MB for Discord, Slack and email limits. Roat keeps 5 % in reserve so the file lands just under, picks the audio bitrate for you, and drops to 720p or 480p when the budget is tight. **Ctrl/Cmd+K → Fit Video to 25 MB** sets it up in one step.
+- **Corner logo watermark.** Add a PNG or JPG logo in any corner of a converted video at **8 %**, **14 %** or **22 %** of the width and 25–100 % opacity. Transparent PNGs stay transparent.
+- **Contact sheets and best thumbnails.** One image of 16 (4 × 4) or 12 (3 × 4) evenly spaced, time-stamped frames, or the single most representative frame, as JPG or PNG. Even huge files are sampled in seconds.
+- **Transcript mute, 1 kHz bleep and filler sweep.** Each transcript line can be kept, cut, muted or bleeped (**Delete**, **M**, **B**), and **Sweep Fillers / Keywords** marks every "um", "uh" or chosen word at once. **Export Edited Media** silences muted lines and covers bleeped ones with a broadcast-style tone; with nothing cut, the video is copied untouched.
+- **Audio stems & channels.** **Stems & Channels** saves each audio track as its own file, splits a two-mic stereo track into left and right files, or centres a one-sided recording into both ears.
+- **EBU R128 loudness inspector.** **Inspect Loudness** on any file or finished job shows integrated loudness, loudness range and true peak, and whether it's **Podcast Ready (−16 LUFS)**, **Streaming Ready (−14 LUFS)**, too quiet, too loud or at risk of clipping.
+- **Smoother macOS updates.** **Install Update Now** no longer fails when the previous version's files are still in use, and shows the real reason if anything else goes wrong.
 
 **v0.6.0**
 - **Smart Audio Ducking & Voice/Music Mixer.** **Mix Music** lays a background track under a voiceover or video at −24 to −6 dB. Whenever someone speaks the music dips by exactly **Light −6 dB**, **Standard −12 dB** or **Deep −18 dB** (or stays put as a static mix), then comes back in the pauses. Short tracks loop and fade out; the picture is copied untouched.
@@ -32,8 +42,8 @@ Roat downloads online video, converts and cleans up your own media (including 20
 
 | Platform | File | Notes |
 |---|---|---|
-| Windows 10/11 (x64) | [Roat-0.6.0-win-x64.exe](https://github.com/angelitojusay/roat/releases/download/v0.6.0/Roat-0.6.0-win-x64.exe) | Installer (recommended) |
-| Windows 10/11 (x64) | [Roat-0.6.0-portable.exe](https://github.com/angelitojusay/roat/releases/download/v0.6.0/Roat-0.6.0-portable.exe) | Portable, no install |
+| Windows 10/11 (x64) | [Roat-0.7.0-win-x64.exe](https://github.com/angelitojusay/roat/releases/download/v0.7.0/Roat-0.7.0-win-x64.exe) | Installer (recommended) |
+| Windows 10/11 (x64) | [Roat-0.7.0-portable.exe](https://github.com/angelitojusay/roat/releases/download/v0.7.0/Roat-0.7.0-portable.exe) | Portable, no install |
 
 ### macOS
 
@@ -49,8 +59,8 @@ The [script](install.sh) downloads the latest release for your Mac (Apple Silico
 
 | Platform | File | Notes |
 |---|---|---|
-| macOS 13+, Apple Silicon (M1 and later) | [Roat-0.6.0-mac-arm64.dmg](https://github.com/angelitojusay/roat/releases/download/v0.6.0/Roat-0.6.0-mac-arm64.dmg) | Disk image |
-| macOS 13+, Intel | [Roat-0.6.0-mac-x64.dmg](https://github.com/angelitojusay/roat/releases/download/v0.6.0/Roat-0.6.0-mac-x64.dmg) | Disk image |
+| macOS 13+, Apple Silicon (M1 and later) | [Roat-0.7.0-mac-arm64.dmg](https://github.com/angelitojusay/roat/releases/download/v0.7.0/Roat-0.7.0-mac-arm64.dmg) | Disk image |
+| macOS 13+, Intel | [Roat-0.7.0-mac-x64.dmg](https://github.com/angelitojusay/roat/releases/download/v0.7.0/Roat-0.7.0-mac-x64.dmg) | Disk image |
 
 Drag Roat to Applications and open it. Roat isn't notarized yet, so if macOS says **"Roat is damaged and can't be opened"**, run this in Terminal; it fixes it immediately, then open Roat normally:
 
@@ -60,16 +70,18 @@ xattr -cr /Applications/Roat.app
 
 The message comes from the browser's download quarantine, not from a broken file.
 
-SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roat/releases/download/v0.6.0/SHA256SUMS-windows.txt) · [SHA256SUMS-macos.txt](https://github.com/angelitojusay/roat/releases/download/v0.6.0/SHA256SUMS-macos.txt). All releases are listed on the [Releases page](https://github.com/angelitojusay/roat/releases). Inside the app, **Settings → About → Check for Updates** tells you when a new version is out, and **Install Update Now** downloads, verifies and installs it for you.
+SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roat/releases/download/v0.7.0/SHA256SUMS-windows.txt) · [SHA256SUMS-macos.txt](https://github.com/angelitojusay/roat/releases/download/v0.7.0/SHA256SUMS-macos.txt). All releases are listed on the [Releases page](https://github.com/angelitojusay/roat/releases). Inside the app, **Settings → About → Check for Updates** tells you when a new version is out, and **Install Update Now** downloads, verifies and installs it for you.
 
 ## What Roat does
 
 ### 1. Media Studio
-- Convert video formats, compress to a target size or quality preset, extract audio, and convert audio.
+- Convert video formats (optionally to a **target file size** and with a **corner logo watermark**), compress to a target size or quality preset, extract audio, and convert audio.
 - **Trim / Cut** on a waveform with draggable handles and a preview, without re-encoding (or frame-accurate). **Merge Clips** that share a format. **Split Chapters** into numbered files from the file's chapters or pasted timestamps.
 - **Burn Captions** from a finished transcript, in three caption styles with placement, size and short-burst options.
 - **Social reframe** to 9:16, 1:1 or 16:9 (blurred backdrop, centre crop or black bars) in Convert and Burn Captions.
 - **Mix Music** under a voice with automatic ducking, and **Audiogram** waveform videos for podcasts.
+- **Contact Sheet** grids of time-stamped frames, or the best thumbnail, as JPG or PNG.
+- **Stems & Channels:** every audio track as its own file, stereo split into left and right, or a one-sided recording centred. **Inspect Loudness** measures EBU R128 loudness and true peak with a plain verdict.
 - **Batches:** up to 50 files at once, one job each.
 - Built for **cinema camera files**: ProRes, DNxHR, 10-bit 4:2:2, and multi-track 24-bit audio in `.mov`/`.mxf`/`.mp4`. You choose which track or channel to use.
 - **GPU video encoding:** NVIDIA NVENC on Windows and Apple VideoToolbox on macOS. If the GPU can't handle a file, Roat finishes the job on the CPU.
@@ -79,7 +91,7 @@ SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roa
 - Three models: **Roat Swift** (fast), **Roat Studio** (high accuracy) and **Roat Cinema Master** (maximum precision). Each is rated for your computer, with a plain-English reason.
 - Professional transcript layout with timestamps, exported as `.txt`, `.pdf`, `.docx` and `.srt`.
 - **Transcript editor:** correct words, search, play any line from the recording, copy the full text, and save to re-export every file instantly (optionally with short-burst SRT captions).
-- **Edit by text:** strike out lines and export the edited media; label speakers and rename them everywhere at once.
+- **Edit by text:** cut, mute or bleep lines (or sweep away every filler word) and export the edited media; label speakers and rename them everywhere at once.
 - Optional translation into 10 languages, and subtitles added back into the video (soft tracks or burned in, in your caption style).
 
 ### 3. Clean Up Audio
@@ -99,6 +111,7 @@ Only download content you have the right to download.
 - **Send To…** on any finished job hands the file to another workspace, already filled in.
 - **Command palette:** **Ctrl+K** (or **Cmd+K**) jumps to any workspace or tool, clears finished jobs, opens the output folder, or opens a transcript by name.
 - **Custom presets:** save your Convert, Clean Up Audio and Transcribe settings under a name and apply them with one click.
+- **Watch folders:** new files dropped into a chosen folder are converted, cleaned up or transcribed automatically, with your presets.
 
 ## First launch
 
@@ -119,7 +132,7 @@ shasum -a 256 -c SHA256SUMS-macos.txt --ignore-missing
 Windows (PowerShell), then compare with `SHA256SUMS-windows.txt`:
 
 ```powershell
-Get-FileHash .\Roat-0.6.0-win-x64.exe -Algorithm SHA256
+Get-FileHash .\Roat-0.7.0-win-x64.exe -Algorithm SHA256
 ```
 
 ## Privacy
@@ -127,6 +140,7 @@ Get-FileHash .\Roat-0.6.0-win-x64.exe -Algorithm SHA256
 - No telemetry, analytics, ads or accounts. Your media never leaves your computer.
 - **Translation is the one exception, and only when you ask for it:** the transcript **text** (no audio, file names or paths) is sent to a translation service. The Transcribe view says so next to the language choices.
 - Update checks contact GitHub only when you click **Check for Updates**, and updates download only when you click **Install Update Now**.
+- Watch folders read only the folders you choose, only while Roat is running.
 - Settings → **App Data & Uninstall** shows what Roat stores and removes it, or uninstalls Roat completely.
 
 ## Support Roat
