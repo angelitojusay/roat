@@ -1,12 +1,29 @@
 # Roat
 
-**Private, local-first desktop media studio, audio clean up, and multi-language AI transcription for Windows & macOS.**
+**Private, local-first desktop media studio, audio clean up, multi-language AI transcription and AI voiceover for Windows & macOS.**
 
-Roat downloads online video, converts and cleans up your own media (including 200 GB+ cinema camera files), and transcribes speech. All of it happens on your computer. Nothing is uploaded, there are no accounts, and there is no telemetry.
+Roat downloads online video, converts and cleans up your own media (including 200 GB+ cinema camera files), transcribes speech, and turns scripts and subtitles into natural voiceovers. All of it happens on your computer. Nothing is uploaded, there are no accounts, and there is no telemetry.
 
-**[⬇ Download the latest release](https://github.com/angelitojusay/roat/releases/latest)** · current version **v0.9.0**
+**[⬇ Download the latest release](https://github.com/angelitojusay/roat/releases/latest)** · current version **v1.0.0**
 
 ## What's new
+
+### 🎉 v1.0.0: the flagship release
+
+**AI voiceover and dubbing, made on your computer (Kokoro-82M)**
+- **Local text-to-speech.** The new **Voiceover & Dubbing** mode in Media Studio reads text in natural voices with **Kokoro-82M**, an open (Apache-2.0) speech model that runs entirely on your computer: no account, no upload, no Python. Download it once (about 375 MB, checked with SHA-256) from **Settings → AI Models** or the banner in the mode, and cancel or remove it any time. Seven English voices (Heart, Bella, Nicole, Adam, Michael, and the British Emma and George) at **0.75× to 1.50×** speed.
+- **Scripts and two-voice dialogue.** Write `[Host]:` and `[Guest]:` (any names) to switch voices line by line, give each speaker their own voice, and add `[pause 0.5s]` where a breath belongs.
+- **Timed dubbing from transcripts and subtitles.** Dub a video from a finished transcript (its original lines or the **English translation**) or any **SRT / VTT** file: every line starts at its own timestamp, and a line that would run into the next is sped up slightly (at most 1.30×) instead of overlapping.
+- **Mastered and mixed for you.** The voice gets a broadcast EQ and is mastered to **−16 LUFS**, then saved as **WAV, M4A or MP3**, swapped in as the video's new audio, or mixed over the original, which **ducks 12 dB** whenever the voice speaks. The picture is copied untouched.
+
+**Timecode, LTC and waveform auto-sync**
+- **SMPTE LTC timecode ("Tentacle Sync mode").** **Timecode & Audio Sync → LTC → Timecode** reads the timecode signal a Tentacle Sync, Deity or similar box records on one camera channel and writes it as the file's real timecode (picture copied), optionally replacing that channel with the scratch mic.
+- **Waveform auto-sync ("PluralEyes mode").** **Replace Camera Audio** lines up a lav mic or field recorder with the camera by timecode, Broadcast WAV time, LTC or by matching the two waveforms, then swaps in the clean audio with the picture copied. Weak matches are never applied.
+- **Multi-cam auto-sync.** **Multi-Cam / PiP → Auto-Sync Clips** aligns the second camera to the first before building the picture-in-picture or split screen; a **TC** badge marks files that carry timecode.
+
+**System Health diagnostics**
+- **Settings → System Health** shows Roat's version, your OS, the installed tools, the active H.264 / HEVC / AV1 / ProRes encoders and which AI models are installed. **Copy Diagnostic Summary for GitHub Issue** copies it as Markdown, with no file paths, user name or computer name; nothing is sent anywhere.
+- **Find it by asking:** try *"text to speech"*, *"dub video"*, *"read subtitles"*, *"tentacle sync"*, *"pluraleyes"* or *"system health"* in **Ctrl/Cmd+K**.
 
 **v0.9.0**
 - **Apple ProRes and Avid DNxHR masters and proxies.** Convert Video → MOV writes **ProRes** (422 Proxy, LT, 422, HQ, 4444) or **DNxHR** (LB, SQ, HQX) with every audio track as uncompressed **24-bit 48 kHz PCM**: smooth-scrubbing files for DaVinci Resolve, Final Cut Pro and Premiere, with a size-per-minute hint before you start.
@@ -64,8 +81,8 @@ Roat downloads online video, converts and cleans up your own media (including 20
 
 | Platform | File | Notes |
 |---|---|---|
-| Windows 10/11 (x64) | [Roat-0.9.0-win-x64.exe](https://github.com/angelitojusay/roat/releases/download/v0.9.0/Roat-0.9.0-win-x64.exe) | Installer (recommended) |
-| Windows 10/11 (x64) | [Roat-0.9.0-portable.exe](https://github.com/angelitojusay/roat/releases/download/v0.9.0/Roat-0.9.0-portable.exe) | Portable, no install |
+| Windows 10/11 (x64) | [Roat-1.0.0-win-x64.exe](https://github.com/angelitojusay/roat/releases/download/v1.0.0/Roat-1.0.0-win-x64.exe) | Installer (recommended) |
+| Windows 10/11 (x64) | [Roat-1.0.0-portable.exe](https://github.com/angelitojusay/roat/releases/download/v1.0.0/Roat-1.0.0-portable.exe) | Portable, no install |
 
 ### macOS
 
@@ -81,8 +98,8 @@ The [script](install.sh) downloads the latest release for your Mac (Apple Silico
 
 | Platform | File | Notes |
 |---|---|---|
-| macOS 13+, Apple Silicon (M1 and later) | [Roat-0.9.0-mac-arm64.dmg](https://github.com/angelitojusay/roat/releases/download/v0.9.0/Roat-0.9.0-mac-arm64.dmg) | Disk image |
-| macOS 13+, Intel | [Roat-0.9.0-mac-x64.dmg](https://github.com/angelitojusay/roat/releases/download/v0.9.0/Roat-0.9.0-mac-x64.dmg) | Disk image |
+| macOS 13+, Apple Silicon (M1 and later) | [Roat-1.0.0-mac-arm64.dmg](https://github.com/angelitojusay/roat/releases/download/v1.0.0/Roat-1.0.0-mac-arm64.dmg) | Disk image |
+| macOS 13+, Intel | [Roat-1.0.0-mac-x64.dmg](https://github.com/angelitojusay/roat/releases/download/v1.0.0/Roat-1.0.0-mac-x64.dmg) | Disk image |
 
 Drag Roat to Applications and open it. Roat isn't notarized yet, so if macOS says **"Roat is damaged and can't be opened"**, run this in Terminal; it fixes it immediately, then open Roat normally:
 
@@ -92,7 +109,7 @@ xattr -cr /Applications/Roat.app
 
 The message comes from the browser's download quarantine, not from a broken file.
 
-SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roat/releases/download/v0.9.0/SHA256SUMS-windows.txt) · [SHA256SUMS-macos.txt](https://github.com/angelitojusay/roat/releases/download/v0.9.0/SHA256SUMS-macos.txt). All releases are listed on the [Releases page](https://github.com/angelitojusay/roat/releases). Inside the app, **Settings → About → Check for Updates** tells you when a new version is out, and **Install Update Now** downloads, verifies and installs it for you.
+SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roat/releases/download/v1.0.0/SHA256SUMS-windows.txt) · [SHA256SUMS-macos.txt](https://github.com/angelitojusay/roat/releases/download/v1.0.0/SHA256SUMS-macos.txt). All releases are listed on the [Releases page](https://github.com/angelitojusay/roat/releases). Inside the app, **Settings → About → Check for Updates** tells you when a new version is out, and **Install Update Now** downloads, verifies and installs it for you.
 
 ## What Roat does
 
@@ -101,7 +118,9 @@ SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roa
 - **Trim / Cut** on a waveform with draggable handles and a preview, without re-encoding (or frame-accurate). **Merge Clips** that share a format. **Split Chapters** into numbered files from the file's chapters or pasted timestamps.
 - **Burn Captions** from a finished transcript, in three caption styles with placement, size and short-burst options (or two-line bilingual captions). **Subtitle File** adds an `.srt` / `.vtt` / `.ass` as a toggleable track or burns it in.
 - **Grade and conform:** lock variable frame rate to CFR, tone-map HDR to SDR, apply a `.cube` LUT, and **auto-crop black bars**.
-- **Multi-Cam / PiP:** a webcam in any corner, a 50/50 side-by-side interview, or a 9:16 top / bottom split.
+- **Multi-Cam / PiP:** a webcam in any corner, a 50/50 side-by-side interview, or a 9:16 top / bottom split, with **Auto-Sync** of the two cameras.
+- **Voiceover & Dubbing:** natural offline AI voices (**Kokoro-82M**) from a script with two-voice dialogue tags, a transcript or an SRT / VTT file, timed to the video, mastered to −16 LUFS, as audio or the video's new or ducked audio.
+- **Timecode & Audio Sync:** stamp **SMPTE LTC** as the file's timecode, and replace the camera's scratch audio with an external recorder synced by timecode, LTC or **waveform matching**.
 - **Chapters & Tags:** bake chapters, tags and cover art into a copy without re-encoding, or strip GPS and camera metadata.
 - **Social reframe** to 9:16, 1:1 or 16:9 (blurred backdrop, centre crop or black bars) in Convert and Burn Captions.
 - **Mix Music** under a voice with automatic ducking, and **Audiogram** waveform videos for podcasts.
@@ -142,6 +161,7 @@ Only download content you have the right to download.
 - **Command palette:** **Ctrl+K** (or **Cmd+K**) jumps to any workspace or tool, even from plain English like *"hide my email"*, clears finished jobs, opens the output folder, or opens a transcript by name.
 - **Built-in help:** a **?** next to every tool (or **?** / **F1**) explains what it's for, how it works and what it writes.
 - **Custom presets:** save your Convert, Clean Up Audio and Transcribe settings under a name and apply them with one click, and move them (with your workflows) to another computer as one `.json` file.
+- **System Health:** Settings shows your versions, tools, encoders and AI models, and copies a privacy-safe summary for bug reports.
 - **Watch folders:** new files dropped into a chosen folder are converted, cleaned up, transcribed or run through a workflow (built-in or your own) automatically, with your presets.
 
 ## First launch
@@ -150,7 +170,7 @@ Only download content you have the right to download.
 
 **macOS.** With the 1-command install, Roat opens right away. After a manual DMG download, use the `xattr -cr /Applications/Roat.app` fix above if macOS calls Roat "damaged". Later updates installed with **Settings → About → Install Update Now** don't go through the browser, so they open without it.
 
-The first time you use a workspace, Roat offers to download the tools it needs (yt-dlp, ffmpeg, whisper models and so on) from their official releases. It checks each file's SHA-256 before using it.
+The first time you use a workspace, Roat offers to download the tools it needs (yt-dlp, ffmpeg, whisper models, the Kokoro voice and so on) from their official releases. It checks each file's SHA-256 before using it.
 
 ## Verify your download
 
@@ -163,7 +183,7 @@ shasum -a 256 -c SHA256SUMS-macos.txt --ignore-missing
 Windows (PowerShell), then compare with `SHA256SUMS-windows.txt`:
 
 ```powershell
-Get-FileHash .\Roat-0.9.0-win-x64.exe -Algorithm SHA256
+Get-FileHash .\Roat-1.0.0-win-x64.exe -Algorithm SHA256
 ```
 
 ## Privacy
@@ -172,6 +192,7 @@ Get-FileHash .\Roat-0.9.0-win-x64.exe -Algorithm SHA256
 - **Translation is the one exception, and only when you ask for it:** the transcript **text** (no audio, file names or paths) is sent to a translation service. The Transcribe view says so next to the language choices.
 - Update checks contact GitHub only when you click **Check for Updates**, and updates download only when you click **Install Update Now**.
 - Watch folders read only the folders you choose, only while Roat is running.
+- **Voiceover runs entirely on your computer:** scripts, transcripts and subtitles are never uploaded. **System Health**'s summary contains no file paths, user or computer name, and leaves your computer only if you paste it somewhere.
 - Settings → **App Data & Uninstall** shows what Roat stores and removes it, or uninstalls Roat completely.
 
 ## Support Roat
@@ -180,6 +201,6 @@ Roat is free, with no ads, accounts or locked features. If it saves you time, yo
 
 ## Credits
 
-Roat stands on excellent open-source work: [yt-dlp](https://github.com/yt-dlp/yt-dlp), [FFmpeg](https://ffmpeg.org), [whisper.cpp](https://github.com/ggml-org/whisper.cpp), [DeepFilterNet](https://github.com/Rikorose/DeepFilterNet), [RNNoise](https://github.com/xiph/rnnoise), [Deno](https://deno.com) and [Electron](https://www.electronjs.org). The tools are downloaded from their official releases on first use. Full licences are in the app under **Settings → About → View Open Source Licenses**.
+Roat stands on excellent open-source work: [yt-dlp](https://github.com/yt-dlp/yt-dlp), [FFmpeg](https://ffmpeg.org), [whisper.cpp](https://github.com/ggml-org/whisper.cpp), [DeepFilterNet](https://github.com/Rikorose/DeepFilterNet), [RNNoise](https://github.com/xiph/rnnoise), [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx) with [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M), [Deno](https://deno.com) and [Electron](https://www.electronjs.org). The tools are downloaded from their official releases on first use. Full licences are in the app under **Settings → About → View Open Source Licenses**.
 
 Roat is provided under its End-User License Agreement, shown when you install it and in **Settings → About**.
