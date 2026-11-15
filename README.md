@@ -4,9 +4,17 @@
 
 Roat downloads online video, converts and cleans up your own media (including 200 GB+ cinema camera files), and transcribes speech. All of it happens on your computer. Nothing is uploaded, there are no accounts, and there is no telemetry.
 
-**[⬇ Download the latest release](https://github.com/angelitojusay/roat/releases/latest)** · current version **v0.5.0**
+**[⬇ Download the latest release](https://github.com/angelitojusay/roat/releases/latest)** · current version **v0.6.0**
 
 ## What's new
+
+**v0.6.0**
+- **Smart Audio Ducking & Voice/Music Mixer.** **Mix Music** lays a background track under a voiceover or video at −24 to −6 dB. Whenever someone speaks the music dips by exactly **Light −6 dB**, **Standard −12 dB** or **Deep −18 dB** (or stays put as a static mix), then comes back in the pauses. Short tracks loop and fade out; the picture is copied untouched.
+- **9:16 & 1:1 Social Reframe.** Convert Video and Burn Captions turn a 16:9 clip into **9:16 Vertical (1080×1920)**, **1:1 Square** or **16:9**, with a **Blurred Backdrop**, a **Center Crop** or **Black Bars**. Burned captions are drawn after the reframe, so they stay crisp inside the new frame. **Ctrl/Cmd+K → Reframe for Shorts** sets it up in one step.
+- **Podcast Audiogram Video Generator.** Turn an audio file into a shareable MP4 with an animated waveform: 9:16, 1:1 or 16:9, in **Studio Indigo**, **Amber Gold**, **Emerald Mint** or **Monochrome**, on a solid colour or your own background image, with the finished transcript burned in as captions if you like.
+- **Transcript strike-to-cut.** Cut lines in the transcript editor (✂ or **Delete**), then **Export Edited Media** renders the recording without them, plus a re-timed `.srt` and `.txt`.
+- **Speaker labels.** Tag lines with speakers, **Auto-Group Speaker Turns** at pauses, and rename **Speaker 1** to **Alex** everywhere at once. Exports carry the names.
+- **Batches of up to 50 files** in Media Studio and Transcribe: drop a folder, check the batch bar, and run them all with one click.
 
 **v0.5.0**
 - **Media Studio first.** Roat opens on Media Studio, and the sidebar reads **Media Studio → Transcribe → Clean Up Audio → Web Import**. *Online Extractor* is now called **Web Import**.
@@ -18,19 +26,14 @@ Roat downloads online video, converts and cleans up your own media (including 20
 - **Clip-range downloads** in Web Import: grab one minute of a long stream without downloading all of it.
 - **Command palette** (**Ctrl+K**, or **Cmd+K** on Mac) and **custom presets** you can save for Convert, Clean Up Audio and Transcribe.
 
-**v0.4.1**
-- **Install Update Now** (Settings → About): Roat downloads the new version itself, checks it against the release's SHA-256 checksums, and installs it. On macOS it replaces Roat in Applications and restarts; on Windows it runs the installer. No browser download, so no "damaged" warning on updates.
-- Mac builds are consistently ad-hoc signed.
-- Windows 11: Roat can be pinned to the taskbar and Start, and the installer always adds a desktop shortcut.
-
 ## Download
 
 ### Windows
 
 | Platform | File | Notes |
 |---|---|---|
-| Windows 10/11 (x64) | [Roat-0.5.0-win-x64.exe](https://github.com/angelitojusay/roat/releases/download/v0.5.0/Roat-0.5.0-win-x64.exe) | Installer (recommended) |
-| Windows 10/11 (x64) | [Roat-0.5.0-portable.exe](https://github.com/angelitojusay/roat/releases/download/v0.5.0/Roat-0.5.0-portable.exe) | Portable, no install |
+| Windows 10/11 (x64) | [Roat-0.6.0-win-x64.exe](https://github.com/angelitojusay/roat/releases/download/v0.6.0/Roat-0.6.0-win-x64.exe) | Installer (recommended) |
+| Windows 10/11 (x64) | [Roat-0.6.0-portable.exe](https://github.com/angelitojusay/roat/releases/download/v0.6.0/Roat-0.6.0-portable.exe) | Portable, no install |
 
 ### macOS
 
@@ -46,8 +49,8 @@ The [script](install.sh) downloads the latest release for your Mac (Apple Silico
 
 | Platform | File | Notes |
 |---|---|---|
-| macOS 13+, Apple Silicon (M1 and later) | [Roat-0.5.0-mac-arm64.dmg](https://github.com/angelitojusay/roat/releases/download/v0.5.0/Roat-0.5.0-mac-arm64.dmg) | Disk image |
-| macOS 13+, Intel | [Roat-0.5.0-mac-x64.dmg](https://github.com/angelitojusay/roat/releases/download/v0.5.0/Roat-0.5.0-mac-x64.dmg) | Disk image |
+| macOS 13+, Apple Silicon (M1 and later) | [Roat-0.6.0-mac-arm64.dmg](https://github.com/angelitojusay/roat/releases/download/v0.6.0/Roat-0.6.0-mac-arm64.dmg) | Disk image |
+| macOS 13+, Intel | [Roat-0.6.0-mac-x64.dmg](https://github.com/angelitojusay/roat/releases/download/v0.6.0/Roat-0.6.0-mac-x64.dmg) | Disk image |
 
 Drag Roat to Applications and open it. Roat isn't notarized yet, so if macOS says **"Roat is damaged and can't be opened"**, run this in Terminal; it fixes it immediately, then open Roat normally:
 
@@ -57,7 +60,7 @@ xattr -cr /Applications/Roat.app
 
 The message comes from the browser's download quarantine, not from a broken file.
 
-SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roat/releases/download/v0.5.0/SHA256SUMS-windows.txt) · [SHA256SUMS-macos.txt](https://github.com/angelitojusay/roat/releases/download/v0.5.0/SHA256SUMS-macos.txt). All releases are listed on the [Releases page](https://github.com/angelitojusay/roat/releases). Inside the app, **Settings → About → Check for Updates** tells you when a new version is out, and **Install Update Now** downloads, verifies and installs it for you.
+SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roat/releases/download/v0.6.0/SHA256SUMS-windows.txt) · [SHA256SUMS-macos.txt](https://github.com/angelitojusay/roat/releases/download/v0.6.0/SHA256SUMS-macos.txt). All releases are listed on the [Releases page](https://github.com/angelitojusay/roat/releases). Inside the app, **Settings → About → Check for Updates** tells you when a new version is out, and **Install Update Now** downloads, verifies and installs it for you.
 
 ## What Roat does
 
@@ -65,6 +68,9 @@ SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roa
 - Convert video formats, compress to a target size or quality preset, extract audio, and convert audio.
 - **Trim / Cut** on a waveform with draggable handles and a preview, without re-encoding (or frame-accurate). **Merge Clips** that share a format. **Split Chapters** into numbered files from the file's chapters or pasted timestamps.
 - **Burn Captions** from a finished transcript, in three caption styles with placement, size and short-burst options.
+- **Social reframe** to 9:16, 1:1 or 16:9 (blurred backdrop, centre crop or black bars) in Convert and Burn Captions.
+- **Mix Music** under a voice with automatic ducking, and **Audiogram** waveform videos for podcasts.
+- **Batches:** up to 50 files at once, one job each.
 - Built for **cinema camera files**: ProRes, DNxHR, 10-bit 4:2:2, and multi-track 24-bit audio in `.mov`/`.mxf`/`.mp4`. You choose which track or channel to use.
 - **GPU video encoding:** NVIDIA NVENC on Windows and Apple VideoToolbox on macOS. If the GPU can't handle a file, Roat finishes the job on the CPU.
 
@@ -73,6 +79,7 @@ SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roa
 - Three models: **Roat Swift** (fast), **Roat Studio** (high accuracy) and **Roat Cinema Master** (maximum precision). Each is rated for your computer, with a plain-English reason.
 - Professional transcript layout with timestamps, exported as `.txt`, `.pdf`, `.docx` and `.srt`.
 - **Transcript editor:** correct words, search, play any line from the recording, copy the full text, and save to re-export every file instantly (optionally with short-burst SRT captions).
+- **Edit by text:** strike out lines and export the edited media; label speakers and rename them everywhere at once.
 - Optional translation into 10 languages, and subtitles added back into the video (soft tracks or burned in, in your caption style).
 
 ### 3. Clean Up Audio
@@ -112,7 +119,7 @@ shasum -a 256 -c SHA256SUMS-macos.txt --ignore-missing
 Windows (PowerShell), then compare with `SHA256SUMS-windows.txt`:
 
 ```powershell
-Get-FileHash .\Roat-0.5.0-win-x64.exe -Algorithm SHA256
+Get-FileHash .\Roat-0.6.0-win-x64.exe -Algorithm SHA256
 ```
 
 ## Privacy
