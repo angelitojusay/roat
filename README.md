@@ -8,6 +8,11 @@ Roat downloads online video, converts and cleans up your own media (including 20
 
 ## What's new
 
+### v1.1.3
+- **Timelines that open cleanly in DaVinci Resolve.** Every timeline Roat writes now imports into **DaVinci Resolve Studio 21.2**. That covers multi-cam sync with Auto-Cut, and the transcript cut as **FCPXML**, **Premiere XML** and **EDL**. Each was tested in Resolve on real camera files with and without timecode. Clips from cameras that record timecode (for example `01:00:00:00`) now link straight to your media instead of being refused or going offline.
+- **Auto-Cut sounds right.** The switched edit on the top track is now picture only, so the cameras' own scratch audio no longer plays under your clean dialogue recording.
+- **Every cut stays in sync.** A shot that starts before a camera began recording, or runs past its last frame, is now trimmed to the footage that camera actually has, instead of playing a few frames early.
+
 ### v1.1.2
 - **Your LUT stays on.** The LUT you pick for the Studio monitor now stays on while you move between tools: set In / Out in **Trim / Cut**, make a voiceover in **AI Voiceover**, and **Export .roatlip** still records the camera LUT. Only choosing **No LUT**, or removing the clip, turns it off.
 - **Auto-Cut that isn't fooled by the background.** When a local, UltraFace-compatible face detector is available (the model in `<userData>/models/face/` plus the ONNX Runtime, which Roat doesn't bundle or download), Auto-Cut reads each speaker's lips under their detected face, so a screen or gesture that moves with the conversation is no longer taken for a talking mouth. Without one, Auto-Cut works exactly as before.
