@@ -8,6 +8,9 @@ Roat downloads online video, converts and cleans up your own media (including 20
 
 ## What's new
 
+### v1.1.5
+- **Your own LUT travels with the handoff.** When you grade with your own `.cube` LUT and **Export .roatlip**, Roat now copies that LUT right beside the handoff as `<clip>.roatlip.cube`, so the look stays with the clip when you move the folder or hand it to another computer. Roat's built-in camera LUTs need no copy. The `.roatlip.json` itself is unchanged (still v1.0), and it never contains your LUT's original location.
+
 ### v1.1.4
 - **Four more camera LUTs.** **ARRI LogC3** (EI 800, AWG3), **RED Log3G10** (REDWideGamutRGB), **DJI D-Log** (D-Gamut) and **Panasonic V-Log** (V-Gamut) to Rec.709 join Sony S-Log3 and Canon C-Log2 / C-Log3. They are made inside Roat from each maker's published curve and colour primaries, with a smooth highlight roll-off so skies and windows ease into white instead of clipping flat. Pick them in **3D LUT Grading** or any LUT menu.
 - **Auto-Cut follows speakers who move.** Built-in speaker tracking needs no download: Roat finds each speaker's mouth from the clean dialogue recording, then follows their face as they sway, lean or shift in frame, so their lips stay measured. Nothing is uploaded and no model is installed; an optional local face detector still takes over when you have one.
@@ -212,7 +215,7 @@ One window, four parts:
   - **Remove Long Silences**.
 - **Broadcast loudness:** voiceovers and recipes are mastered to **−16 LUFS**, and **Inspect Loudness** measures EBU R128 integrated loudness, loudness range and true peak with a plain verdict.
 - **Mix Music** under a voice with automatic ducking.
-- **Export .roatlip** hands a finished voiceover or cleaned-up dialogue to **Roat Voca**, Roat's companion app for local, GPU-accelerated **Visual ADR** (lip re-sync) and **talking-presenter / picture-in-picture** overlays. It travels as one small `.roatlip.json` (v1.0) file with its subtitles, camera clip, In / Out points and LUT.
+- **Export .roatlip** hands a finished voiceover or cleaned-up dialogue to **Roat Voca**, Roat's companion app for local, GPU-accelerated **Visual ADR** (lip re-sync) and **talking-presenter / picture-in-picture** overlays. It travels as one small `.roatlip.json` (v1.0) file with its subtitles, camera clip, In / Out points and LUT; a LUT of your own goes along as a `<clip>.roatlip.cube` beside it.
 
 ### 5. Color, camera LUTs and finishing
 - **Camera LUTs built in**, made inside Roat with nothing to download:
