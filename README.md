@@ -127,7 +127,7 @@ Roat downloads online video, converts and cleans up your own media (including 20
 curl -fsSL https://raw.githubusercontent.com/angelitojusay/roat/main/install.sh | bash
 ```
 
-The [script](install.sh) downloads the latest release for your Mac (Apple Silicon or Intel), verifies it against `SHA256SUMS-macos.txt` and stops if it doesn't match, quits Roat if it is running, installs `Roat.app` into Applications, clears the download quarantine and opens Roat. Nothing is downloaded through the browser, so macOS shows no "damaged" warning.
+The [script](https://github.com/angelitojusay/roat/blob/main/install.sh) downloads the latest release for your Mac (Apple Silicon or Intel), verifies it against `SHA256SUMS-macos.txt` and stops if it doesn't match, quits Roat if it is running, installs `Roat.app` into Applications, clears the download quarantine and opens Roat. Nothing is downloaded through the browser, so macOS shows no "damaged" warning.
 
 **Option B — manual DMG download.**
 
@@ -148,56 +148,117 @@ SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roa
 
 ## What Roat does
 
-### 1. Media Studio
-- Convert video formats, including **AV1** (optionally to a **target file size** and with a **corner logo watermark**), and **ProRes / DNxHR** editing masters and proxies with 24-bit PCM audio, compress to a target size or quality preset, extract audio, and convert audio. **Render 5s Preview** checks the result on 5 seconds first.
-- **Trim / Cut** on a waveform with draggable handles and a preview, without re-encoding (or frame-accurate). **Merge Clips** that share a format. **Split Chapters** into numbered files from the file's chapters or pasted timestamps.
-- **Burn Captions** from a finished transcript, in three caption styles with placement, size and short-burst options (or two-line bilingual captions). **Subtitle File** adds an `.srt` / `.vtt` / `.ass` as a toggleable track or burns it in.
-- **Grade and conform:** lock variable frame rate to CFR, tone-map HDR to SDR, apply a `.cube` LUT, and **auto-crop black bars**.
-- **Multi-Cam / PiP:** a webcam in any corner, a 50/50 side-by-side interview, or a 9:16 top / bottom split, with **Auto-Sync** of the two cameras.
-- **Voiceover & Dubbing:** natural offline AI voices (**Kokoro-82M**, **12 curated English voices**) from a script with two-voice dialogue tags, a transcript or an SRT / VTT file, timed to the video, mastered to −16 LUFS with an automatic broadcast tail fade-out, as audio or the video's new or ducked audio.
-- **Timecode & Audio Sync:** stamp **SMPTE LTC** as the file's timecode, and replace the camera's scratch audio with an external recorder synced by timecode, LTC or **waveform matching**.
-- **Chapters & Tags:** bake chapters, tags and cover art into a copy without re-encoding, or strip GPS and camera metadata.
-- **Social reframe** to 9:16, 1:1 or 16:9 (blurred backdrop, centre crop or black bars) in Convert and Burn Captions.
-- **Mix Music** under a voice with automatic ducking, and **Audiogram** waveform videos for podcasts.
-- **Contact Sheet** grids of time-stamped frames, or the best thumbnail, as JPG or PNG. **GIF / WebP Loop** makes crisp animated loops for READMEs and docs.
-- **Scenes:** split a video at its scene cuts, or trim black and frozen frames off the ends. **Privacy Blur** blurs, pixelates or blacks out up to three boxes.
-- **Workflows:** one-click multi-step recipes (Podcast Master, Short-Form Clips Factory, Clean Cut Interview), or **your own** 2–3 step workflows, where each finished step feeds the next.
-- **Stems & Channels:** every audio track as its own file, stereo split into left and right, or a one-sided recording centred. **Inspect Loudness** measures EBU R128 loudness and true peak with a plain verdict.
-- **Batches:** up to 50 files at once, one job each.
-- Built for **cinema camera files**: ProRes, DNxHR, 10-bit 4:2:2, and multi-track 24-bit audio in `.mov`/`.mxf`/`.mp4`. You choose which track or channel to use.
-- **GPU video encoding:** NVIDIA NVENC on Windows and Apple VideoToolbox on macOS for H.264, and the GPU's AV1 encoder where it works. If the GPU can't handle a file, Roat finishes the job on the CPU.
+Roat is a desktop editing-prep studio: sync and cut multi-camera shoots, clean up and master dialogue, transcribe and edit by text, voice and dub, grade camera log, and hand finished timelines to your editor. It runs on your own computer, with no account and no subscription.
 
-### 2. Transcribe
-- Offline transcription with **whisper.cpp**, on the GPU (Apple Silicon Metal or NVIDIA CUDA) or the CPU.
-- Three models: **Roat Swift** (fast), **Roat Studio** (high accuracy) and **Roat Cinema Master** (maximum precision). Each is rated for your computer, with a plain-English reason.
-- Professional transcript layout with timestamps, exported as `.txt`, `.pdf`, `.docx` and `.srt`.
-- **Transcript editor:** correct words, search, play any line from the recording, copy the full text, and save to re-export every file instantly (optionally with short-burst SRT captions).
-- **Edit by text:** cut, mute or bleep lines (or sweep away every filler word) and export the edited media; label speakers and rename them everywhere at once.
-- **Hand off and publish:** export the edit as an **FCPXML** or **EDL** timeline for Final Cut Pro, DaVinci Resolve or Premiere, copy **YouTube chapters**, or save **show notes** as Markdown.
-- **Translation Mode:** transcribe in the spoken language, **translate to English**, or keep both on every line (**bilingual**), with original, English and bilingual SRT / VTT exports.
-- Optional translation into 10 languages, and subtitles added back into the video (soft tracks or burned in, in your caption style).
+### 1. The Studio
+One window, four parts:
+- **Dock (left):** the Quick Recipes, the seven Studio Tools, and **More tools** (every earlier Media Studio tool).
+- **Monitor (centre):** plays the clip with a draggable **Log / Rec.709 before-and-after wipe**, a luma waveform, loudness and clip details, and a **lossless keyframe trim bar** for In / Out.
+- **Inspector (right):** every setting for the recipe or tool you picked, and a live list of the files the run will write.
+- **Drawer (bottom):** **Batch Queue** (progress per clip and step), **Transcript** (click a line to jump to it, or to cut it) and **Deliverables** (every finished file, with **Open** and **Show in folder**).
 
-### 3. Clean Up Audio
-- Voice Isolation (optionally with **DeepFilterNet3** neural noise removal), Podcast Enhance, and De-Hum & De-Hiss. Video is copied untouched.
-- **Voice Tone / EQ:** Warm Broadcast, Crisp Presence, De-Esser and an 80 Hz Rumble Cut.
-- **Remove Long Silences** cuts dead air from both audio and video.
-- **Transcribe after cleaning** queues a transcript of the cleaned file automatically.
+**Five Quick Recipes** run a whole job from one click:
 
-### 4. Web Import
-- Download video and audio from YouTube, Vimeo and the many other sites [yt-dlp](https://github.com/yt-dlp/yt-dlp) supports.
-- Pick a resolution, download only a **clip range**, and get subtitles, chapters, metadata and the thumbnail embedded.
-- Browser-cookie pass-through for videos you can only watch while signed in.
-- Optionally send each finished download straight to Transcribe or Clean Up Audio.
+| Recipe | What it chains |
+|---|---|
+| **On-Set Fast Turnaround** | mastered audio and a Whisper `.srt` / `.txt` for the producer, a constant-frame-rate LUT proxy for the editor |
+| **Multi-Cam Shoot Sync & Proxy** | timecode or audio sync, proxies, a synced Resolve / Premiere timeline (with Auto-Cut if you like) |
+| **OBS / Screen-Recording Fixer** | VFR → CFR, DeepFilterNet3 voice isolation with Warm Broadcast EQ at −16 LUFS, captions |
+| **Interview / Dialogue Prep** | lossless keyframe trim, dialogue clean-up, transcript, silence-cut timelines |
+| **Social / Delivery Finish** | 3D LUT grade, −16 LUFS master, burned-in captions |
 
-Only download content you have the right to download.
+**Seven Studio Tools:** Trim & Proxy · Multi-Cam Sync · VFR → CFR · Audio Cleanup & Master · Whisper Subtitles · AI Voiceover & Dubbing · 3D LUT Grading.
+
+### 2. Multi-cam sync, Auto-Cut and NLE timelines
+- **Sync up to 16 cameras and recorders** by timecode or by their audio, with match-confidence and clock-drift badges.
+- **Visual Auto-Cut** adds a switched edit on the timeline's top track. Roat sees who is talking by matching each camera's lip movement against the clean dialogue recording; no AI model to download.
+  - **Speaker cuts lead the speech** by 150 ms (a J-cut), so the picture changes just before the line starts.
+  - **The wide shot** covers people talking over each other.
+  - **Reaction shots** of a nodding listener are optional. With a transcript, they cut away at the end of a sentence or clause and come back as the next phrase begins.
+  - **Face-anchored lip reading:** with an optional local face detector, Roat reads each speaker's lips under their detected face, so a screen or gesture that moves with the conversation isn't taken for a talking mouth.
+  - The switched edit is picture only; your clean dialogue recording stays the timeline's audio.
+- **Timelines for your editor:**
+  - **FCPXML 1.9** for DaVinci Resolve and Final Cut Pro, and **Premiere XML** (xmeml 5) for Premiere Pro, for the synced cameras and the Auto-Cut.
+  - **FCPXML**, **Premiere XML** and **CMX 3600 EDL** for transcript cuts.
+  - Each clip keeps its camera's own SMPTE timecode, so the timeline links straight to your media.
+  - Every timeline type has been imported into **DaVinci Resolve Studio 21.2** on real camera files, with and without timecode, with **no offline clips**.
+
+### 3. Transcript and text-based editing
+- **Offline transcription** with **whisper.cpp**, on the GPU (Apple Silicon Metal or NVIDIA CUDA) or the CPU:
+  - three models: **Roat Swift**, **Roat Studio** and **Roat Cinema Master**;
+  - exports as `.txt`, `.pdf`, `.docx`, `.srt` and `.vtt`;
+  - **Translation Mode:** translate to English, or keep both languages on every line.
+- **Edit by text:**
+  - Play or jump to any line; cut, mute or bleep it.
+  - **Sweep Fillers / Keywords** marks every "um", "uh" or chosen word at once.
+  - Label and rename speakers.
+  - **Export Edited Media** renders the recording without the cut lines, with a re-timed `.srt`.
+- **Captions:** burn them in as **Cinema Classic**, **High-Contrast Yellow** or **Boxed Background**, with placement, size and punchy **short-burst** options (or two-line bilingual captions). Or add any `.srt` / `.vtt` / `.ass` as a toggleable track.
+- **Publish:** copy **YouTube chapters**, or save **show notes** as Markdown.
+
+### 4. Voice, audio polish and the Roat Voca handoff
+- **AI voiceover and dubbing, made on your computer:** **Kokoro-82M** with **18 voices** (12 Kokoro voices and 6 Voice Lab voices).
+  - Read a script, including two-voice dialogue with `[Host]:` / `[Guest]:` tags and `[pause 0.5s]` breaths.
+  - Or dub a video from a transcript or an SRT / VTT file, every line on its own cue.
+- **Clean Up Audio:**
+  - **Voice Isolation** with **DeepFilterNet3** neural noise removal, or **RNNoise**;
+  - **Podcast Enhance**, **De-Hum & De-Hiss**;
+  - **Voice Tone / EQ** (Warm Broadcast, Crisp Presence, De-Esser, 80 Hz Rumble Cut);
+  - **Remove Long Silences**.
+- **Broadcast loudness:** voiceovers and recipes are mastered to **−16 LUFS**, and **Inspect Loudness** measures EBU R128 integrated loudness, loudness range and true peak with a plain verdict.
+- **Mix Music** under a voice with automatic ducking.
+- **Export .roatlip** hands a finished voiceover or cleaned-up dialogue to **Roat Voca**, Roat's companion app for local, GPU-accelerated **Visual ADR** (lip re-sync) and **talking-presenter / picture-in-picture** overlays. It travels as one small `.roatlip.json` (v1.0) file with its subtitles, camera clip, In / Out points and LUT.
+
+### 5. Color, camera LUTs and finishing
+- **Camera LUTs built in**, made inside Roat with nothing to download:
+  - Sony **S-Log3** (S-Gamut3.Cine and S-Gamut3) to Rec.709;
+  - Canon **C-Log2** and **C-Log3** to Rec.709;
+  - or load your own `.cube` 3D LUT at 25–100 %.
+- **Live before-and-after wipe** on the Studio monitor, and the LUT you pick stays on as you move between tools.
+- **Conform:**
+  - lock variable frame rate (phones, screen recordings) to CFR;
+  - tone-map HDR to SDR;
+  - **auto-crop black bars**.
+- **Editor proxies:** 1080p **ProRes Proxy** or fast **H.264**, keeping the source timecode, with an optional LUT and a clip-name and timecode burn-in.
+- **Masters and delivery:**
+  - **ProRes** (422 Proxy to 4444) and **DNxHR** with 24-bit PCM audio;
+  - **AV1** (optionally to a target file size);
+  - social reframes to 9:16, 1:1 or 16:9.
+- **GPU encoding:** NVIDIA NVENC and Apple VideoToolbox for H.264, and the GPU's AV1 encoder where it works.
+- **Built for cinema camera files:** ProRes, DNxHR, 10-bit 4:2:2 and multi-track 24-bit audio in `.mov` / `.mxf` / `.mp4`, including 200 GB+ files.
+
+### 6. More tools
+- **Convert & Compress, Trim / Cut, Merge Clips, Split Chapters:** without re-encoding where possible.
+- **Video tools:**
+  - **Multi-Cam / PiP** and split-screen layouts;
+  - **Chapters & Tags** (and a GPS / camera-metadata scrub);
+  - **Privacy Blur**;
+  - **Scenes** (split at cuts, trim black or frozen ends).
+- **Picture and audio exports:**
+  - **Contact Sheet** and best thumbnail;
+  - **GIF / WebP Loop**;
+  - **Audiogram** waveform videos;
+  - **Stems & Channels**.
+- **Running many jobs:**
+  - **Workflows:** one-click multi-step chains, or your own;
+  - **Watch folders**;
+  - **batches** of up to 50 files.
+- **Web Import:** download video and audio from YouTube, Vimeo and the many other sites [yt-dlp](https://github.com/yt-dlp/yt-dlp) supports, as a whole file or a clip range, with subtitles, chapters and the thumbnail. Only download content you have the right to download.
+
+### 7. Local, free and permissively licensed
+- **Your media stays on your computer.** There's no telemetry, account or subscription.
+- **Permissive AI models:** Whisper (MIT), Kokoro-82M (Apache-2.0), DeepFilterNet3 (MIT / Apache-2.0) and RNNoise (BSD) all run locally.
+- **What does go online, only when you ask:**
+  - **Translation** sends the transcript's text (no audio, file names or paths) to a translation service.
+  - **Web Import** downloads what you ask for.
+  - **Tools and models** are downloaded once from their official releases and checked by SHA-256.
 
 ### Getting around
-- **Send To…** on any finished job hands the file to another workspace, already filled in.
-- **Command palette:** **Ctrl+K** (or **Cmd+K**) jumps to any workspace or tool, even from plain English like *"hide my email"*, clears finished jobs, opens the output folder, or opens a transcript by name.
+- **Command palette:** **Ctrl+K** (or **Cmd+K**) jumps to any tool, even from plain English like *"hide my email"* or *"davinci resolve"*.
 - **Built-in help:** a **?** next to every tool (or **?** / **F1**) explains what it's for, how it works and what it writes.
-- **Custom presets:** save your Convert, Clean Up Audio and Transcribe settings under a name and apply them with one click, and move them (with your workflows) to another computer as one `.json` file.
-- **System Health:** Settings shows your versions, tools, encoders and AI models, and copies a privacy-safe summary for bug reports.
-- **Watch folders:** new files dropped into a chosen folder are converted, cleaned up, transcribed or run through a workflow (built-in or your own) automatically, with your presets.
+- **Send To…** hands a finished file to another tool, already filled in.
+- **Custom presets:** save presets, and move them (with your workflows) to another computer as one `.json` file.
+- **System Health:** shows your versions, tools, encoders and AI models, and copies a privacy-safe summary for bug reports.
 
 ## First launch
 
