@@ -10,6 +10,10 @@ Roat downloads online video, converts and cleans up your own media (including 20
 
 ## What's new
 
+### v1.1.2
+- **Your LUT stays on.** The LUT you pick for the Studio monitor now stays on while you move between tools: set In / Out in **Trim / Cut**, make a voiceover in **AI Voiceover**, and **Export .roatlip** still records the camera LUT. Only choosing **No LUT**, or removing the clip, turns it off.
+- **Auto-Cut that isn't fooled by the background.** When a local, UltraFace-compatible face detector is available (the model in `<userData>/models/face/` plus the ONNX Runtime, which Roat doesn't bundle or download), Auto-Cut reads each speaker's lips under their detected face, so a screen or gesture that moves with the conversation is no longer taken for a talking mouth. Without one, Auto-Cut works exactly as before.
+
 ### v1.1.1
 - **Reaction shots that wait for the end of a thought.** When the main recording has a Whisper transcript (Roat's own, or an `.srt` / `.vtt` saved next to it), Auto-Cut's listener reactions now cut away at the end of a sentence or clause instead of at any pause, and cut back just as the next phrase begins. The Deliverables strip marks these edits **clause-snapped**. Without a transcript, Auto-Cut works exactly as before.
 
