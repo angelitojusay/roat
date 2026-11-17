@@ -8,6 +8,10 @@ Roat downloads online video, converts and cleans up your own media (including 20
 
 ## What's new
 
+### v1.1.4
+- **Four more camera LUTs.** **ARRI LogC3** (EI 800, AWG3), **RED Log3G10** (REDWideGamutRGB), **DJI D-Log** (D-Gamut) and **Panasonic V-Log** (V-Gamut) to Rec.709 join Sony S-Log3 and Canon C-Log2 / C-Log3. They are made inside Roat from each maker's published curve and colour primaries, with a smooth highlight roll-off so skies and windows ease into white instead of clipping flat. Pick them in **3D LUT Grading** or any LUT menu.
+- **Auto-Cut follows speakers who move.** Built-in speaker tracking needs no download: Roat finds each speaker's mouth from the clean dialogue recording, then follows their face as they sway, lean or shift in frame, so their lips stay measured. Nothing is uploaded and no model is installed; an optional local face detector still takes over when you have one.
+
 ### v1.1.3
 - **Timelines that open cleanly in DaVinci Resolve.** Every timeline Roat writes now imports into **DaVinci Resolve Studio 21.2**. That covers multi-cam sync with Auto-Cut, and the transcript cut as **FCPXML**, **Premiere XML** and **EDL**. Each was tested in Resolve on real camera files with and without timecode. Clips from cameras that record timecode (for example `01:00:00:00`) now link straight to your media instead of being refused or going offline.
 - **Auto-Cut sounds right.** The switched edit on the top track is now picture only, so the cameras' own scratch audio no longer plays under your clean dialogue recording.
@@ -175,6 +179,7 @@ One window, four parts:
   - **Speaker cuts lead the speech** by 150 ms (a J-cut), so the picture changes just before the line starts.
   - **The wide shot** covers people talking over each other.
   - **Reaction shots** of a nodding listener are optional. With a transcript, they cut away at the end of a sentence or clause and come back as the next phrase begins.
+  - **Built-in speaker tracking, nothing to download:** Roat finds each speaker's mouth from the dialogue itself and follows their face as they sway, lean or move in frame, so a moving speaker keeps being read correctly.
   - **Face-anchored lip reading:** with an optional local face detector, Roat reads each speaker's lips under their detected face, so a screen or gesture that moves with the conversation isn't taken for a talking mouth.
   - The switched edit is picture only; your clean dialogue recording stays the timeline's audio.
 - **Timelines for your editor:**
@@ -213,6 +218,7 @@ One window, four parts:
 - **Camera LUTs built in**, made inside Roat with nothing to download:
   - Sony **S-Log3** (S-Gamut3.Cine and S-Gamut3) to Rec.709;
   - Canon **C-Log2** and **C-Log3** to Rec.709;
+  - **ARRI LogC3** (EI 800, AWG3), **RED Log3G10** (REDWideGamutRGB), **DJI D-Log** (D-Gamut) and **Panasonic V-Log** (V-Gamut) to Rec.709, with a smooth highlight roll-off;
   - or load your own `.cube` 3D LUT at 25–100 %.
 - **Live before-and-after wipe** on the Studio monitor, and the LUT you pick stays on as you move between tools.
 - **Conform:**
