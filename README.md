@@ -186,7 +186,7 @@ One window, four parts:
   - **FCPXML 1.9** for DaVinci Resolve and Final Cut Pro, and **Premiere XML** (xmeml 5) for Premiere Pro, for the synced cameras and the Auto-Cut.
   - **FCPXML**, **Premiere XML** and **CMX 3600 EDL** for transcript cuts.
   - Each clip keeps its camera's own SMPTE timecode, so the timeline links straight to your media.
-  - Every timeline type has been imported into **DaVinci Resolve Studio 21.2** on real camera files, with and without timecode, with **no offline clips**. The **Premiere XML** timelines (the multi-cam Auto-Cut and the transcript cut) have also been imported into **Adobe Premiere Pro 27.0**, frame-exact, with every clip linked to its camera timecode and none offline.
+  - Every timeline type has been imported into **DaVinci Resolve Studio 21.2** on real camera files, with and without timecode, with **no offline clips**. In **Adobe Premiere Pro 27.0**, the **Premiere XML** timelines (the multi-cam Auto-Cut and the transcript cut) import frame-exact with every clip linked to its camera timecode, and the transcript cut's **EDL** links every event to its clip by timecode after Premiere's **Link Media** (an EDL names no file), with none offline.
 
 ### 3. Transcript and text-based editing
 - **Offline transcription** with **whisper.cpp**, on the GPU (Apple Silicon Metal or NVIDIA CUDA) or the CPU:
