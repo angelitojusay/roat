@@ -6,9 +6,30 @@ https://github.com/user-attachments/assets/92e8cd15-bb27-4dbf-9bf7-a7e2105e4bf7
 
 Roat downloads online video, converts and cleans up your own media (including 200 GB+ cinema camera files), transcribes speech, and turns scripts and subtitles into natural voiceovers. All of it happens on your computer. Nothing is uploaded, there are no accounts, and there is no telemetry.
 
-**[⬇ Download the latest release](https://github.com/angelitojusay/roat/releases/latest)** · current version **v1.0.1**
+**[⬇ Download the latest release](https://github.com/angelitojusay/roat/releases/latest)** · current version **v1.1.1**
 
 ## What's new
+
+### v1.1.1
+- **Reaction shots that wait for the end of a thought.** When the main recording has a Whisper transcript (Roat's own, or an `.srt` / `.vtt` saved next to it), Auto-Cut's listener reactions now cut away at the end of a sentence or clause instead of at any pause, and cut back just as the next phrase begins. The Deliverables strip marks these edits **clause-snapped**. Without a transcript, Auto-Cut works exactly as before.
+
+### 🎬 v1.1.0: the Studio release
+
+**A new Studio**
+- **Dock, monitor and Inspector.** Media Studio becomes the **Studio**: Quick Recipes and tools on the left; a monitor with a draggable **Log / Rec.709 before-and-after wipe**, a luma waveform, loudness and clip details; a **lossless keyframe trim bar**; and one Inspector on the right with every setting and a live list of the files each run will write. Every earlier tool is still there under **More tools**.
+- **Batch Queue, Transcript and Deliverables** in one drawer: live progress per clip and step, transcript lines you click to cut (with FCPXML / Premiere XML cut timelines), and every finished file with **Open** and **Show in folder**.
+- **Five Quick Recipes** run a whole job from one click: **On-Set Fast Turnaround**, **Multi-Cam Shoot Sync & Proxy**, **OBS / Screen-Recording Fixer**, **Interview / Dialogue Prep** and **Social / Delivery Finish**.
+
+**For editors**
+- **Camera LUTs built in.** Sony **S-Log3** (S-Gamut3.Cine and S-Gamut3) and Canon **C-Log2 / C-Log3** to Rec.709, made inside Roat, with nothing to download.
+- **Editor proxies.** 1080p **ProRes Proxy** or fast **H.264** at a constant frame rate, keeping the source timecode, with an optional LUT and a clip-name and timecode burn-in.
+- **Multi-cam sync for up to 16 cameras and recorders** by timecode or by audio, with match-confidence and clock-drift badges, handed to DaVinci Resolve, Final Cut Pro or Premiere as a synced **FCPXML** or **Premiere XML** timeline.
+- **Visual Auto-Cut.** Roat sees who is talking (lip movement matched against the clean dialogue recording) and adds a switched edit on a top track of that timeline, with editor-style pacing, the wide shot when people talk over each other, and optional reaction shots of a nodding listener. No AI model to download.
+- **Lossless trims that snap to keyframes**, so a no-re-encode cut starts where you see it.
+
+**Voices and hand-off**
+- **Six Voice Lab voices** join the twelve Kokoro voices: **Sol**, **Maple**, **Vale** (UK) and three blends (Fenrir · Michael, Kore · Heart, Heart · Bella).
+- **Export .roatlip.** Hand a finished voiceover or cleaned-up audio, with its subtitles, camera clip, In / Out points and LUT, to Roat's upcoming AI avatar & lip-sync companion app as one small `.roatlip.json` file.
 
 ### v1.0.1
 - **Twelve voices for Voiceover & Dubbing.** Choose from twelve of Kokoro's best-rated English voices: **Heart** (the default), **Bella**, **Kore**, **Aoede**, **Sarah** and **Nicole**; **Fenrir**, **Puck** and **Michael**; and the British **Emma**, **George** and **Fable**.
@@ -88,8 +109,8 @@ Roat downloads online video, converts and cleans up your own media (including 20
 
 | Platform | File | Notes |
 |---|---|---|
-| Windows 10/11 (x64) | [Roat-1.0.1-win-x64.exe](https://github.com/angelitojusay/roat/releases/download/v1.0.1/Roat-1.0.1-win-x64.exe) | Installer (recommended) |
-| Windows 10/11 (x64) | [Roat-1.0.1-portable.exe](https://github.com/angelitojusay/roat/releases/download/v1.0.1/Roat-1.0.1-portable.exe) | Portable, no install |
+| Windows 10/11 (x64) | [Roat-1.1.1-win-x64.exe](https://github.com/angelitojusay/roat/releases/download/v1.1.1/Roat-1.1.1-win-x64.exe) | Installer (recommended) |
+| Windows 10/11 (x64) | [Roat-1.1.1-portable.exe](https://github.com/angelitojusay/roat/releases/download/v1.1.1/Roat-1.1.1-portable.exe) | Portable, no install |
 
 ### macOS
 
@@ -105,8 +126,8 @@ The [script](install.sh) downloads the latest release for your Mac (Apple Silico
 
 | Platform | File | Notes |
 |---|---|---|
-| macOS 13+, Apple Silicon (M1 and later) | [Roat-1.0.1-mac-arm64.dmg](https://github.com/angelitojusay/roat/releases/download/v1.0.1/Roat-1.0.1-mac-arm64.dmg) | Disk image |
-| macOS 13+, Intel | [Roat-1.0.1-mac-x64.dmg](https://github.com/angelitojusay/roat/releases/download/v1.0.1/Roat-1.0.1-mac-x64.dmg) | Disk image |
+| macOS 13+, Apple Silicon (M1 and later) | [Roat-1.1.1-mac-arm64.dmg](https://github.com/angelitojusay/roat/releases/download/v1.1.1/Roat-1.1.1-mac-arm64.dmg) | Disk image |
+| macOS 13+, Intel | [Roat-1.1.1-mac-x64.dmg](https://github.com/angelitojusay/roat/releases/download/v1.1.1/Roat-1.1.1-mac-x64.dmg) | Disk image |
 
 Drag Roat to Applications and open it. Roat isn't notarized yet, so if macOS says **"Roat is damaged and can't be opened"**, run this in Terminal; it fixes it immediately, then open Roat normally:
 
@@ -116,7 +137,7 @@ xattr -cr /Applications/Roat.app
 
 The message comes from the browser's download quarantine, not from a broken file.
 
-SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roat/releases/download/v1.0.1/SHA256SUMS-windows.txt) · [SHA256SUMS-macos.txt](https://github.com/angelitojusay/roat/releases/download/v1.0.1/SHA256SUMS-macos.txt). All releases are listed on the [Releases page](https://github.com/angelitojusay/roat/releases). Inside the app, **Settings → About → Check for Updates** tells you when a new version is out, and **Install Update Now** downloads, verifies and installs it for you.
+SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roat/releases/download/v1.1.1/SHA256SUMS-windows.txt) · [SHA256SUMS-macos.txt](https://github.com/angelitojusay/roat/releases/download/v1.1.1/SHA256SUMS-macos.txt). All releases are listed on the [Releases page](https://github.com/angelitojusay/roat/releases). Inside the app, **Settings → About → Check for Updates** tells you when a new version is out, and **Install Update Now** downloads, verifies and installs it for you.
 
 ## What Roat does
 
@@ -190,7 +211,7 @@ shasum -a 256 -c SHA256SUMS-macos.txt --ignore-missing
 Windows (PowerShell), then compare with `SHA256SUMS-windows.txt`:
 
 ```powershell
-Get-FileHash .\Roat-1.0.1-win-x64.exe -Algorithm SHA256
+Get-FileHash .\Roat-1.1.1-win-x64.exe -Algorithm SHA256
 ```
 
 ## Privacy
