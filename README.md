@@ -8,7 +8,7 @@ Roat downloads online video, converts and cleans up your own media (including 20
 
 ## What's new
 
-### v1.2.0 (coming in the next release)
+### v1.2.0
 - **36 Roat Studio Looks.** Four original looks (Clean Contrast, Warm Film, Teal & Amber, Nordic Matte), each as a Rec.709 finishing look and matched to all eight log cameras, in every LUT menu.
 - **Your LUT library, and looks fitted from it.** Point Settings → **LUT Library** at your own `.cube` folders and they appear under **My Custom LUTs**, grouped by pack and camera. The **Mimic Engine** measures them, removes each camera's log curve, fits a smooth tone, split-tone and colour response, and builds new 33³ looks from those numbers on your computer only: nothing from your packs is copied, bundled or uploaded.
 - **Voice Blender with live audition, and four more voices.** Mix any two Kokoro voices with a blend slider, type a sentence and hear it at once with **▶ Audition Blended Voice**, then save the blend for scripts, dubs and individual speakers. Alloy, Nova, Sky and Isabella join the voice list, and every voice now shows its Kokoro grade and a short description.
