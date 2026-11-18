@@ -8,6 +8,9 @@ Roat downloads online video, converts and cleans up your own media (including 20
 
 ## What's new
 
+### v1.1.6
+- **Drop-frame timecode reads like your slate.** On 29.97 and 59.94 drop-frame camera clips, the Studio's trim bar now shows the playhead, IN, OUT and duration as `HH:MM:SS;FF` with proper SMPTE drop-frame numbering, so a clip that starts at `01:00:00;00` reads `01:00:00;00` instead of `00:59:56:12`. Clips at every other frame rate read exactly as before.
+
 ### v1.1.5
 - **Your own LUT travels with the handoff.** When you grade with your own `.cube` LUT and **Export .roatlip**, Roat now copies that LUT right beside the handoff as `<clip>.roatlip.cube`, so the look stays with the clip when you move the folder or hand it to another computer. Roat's built-in camera LUTs need no copy. The `.roatlip.json` itself is unchanged (still v1.0), and it never contains your LUT's original location.
 
