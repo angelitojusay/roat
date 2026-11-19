@@ -8,6 +8,16 @@ Roat downloads online video, converts and cleans up your own media (including 20
 
 ## What's new
 
+### v1.2.1
+- **The cleanest microphone, found for you.** Roat measures every audio track of a multi-track file (a Sony FX6 MXF records eight) and picks the clean boom over the noisy scratch mics, silent channels and duplicates. Track menus now say which is cleanest, noisier, silent or the same mic twice.
+- **Camera cards in, clean boom WAV out.** Drop an `.mxf` into the Studio and Roat extracts its cleanest track as a centred 48 kHz stereo WAV, with the voice in both ears, and keeps the card ready to convert. A mono boom now centres too, and **Center Dual-Mono** can write the audio alone.
+- **Edit by text, word by word.** Whisper now times every word. Click a word in the Studio's Transcript tab to strike it from the edit, and **Collapse pauses longer than** 0.5–3 s shrinks dead air to a short breath. The new **Edited Timeline** shows exactly what goes, **▶ Preview edit** plays only what stays, and Export Edited Media, the `.srt`, FCPXML, Premiere XML and EDL all follow the same cuts.
+- **A frame-accurate playhead.** The Studio playhead now follows every frame while playing, **← / →** step one frame (**Shift** a second), the marker drags to scrub, and pausing keeps the exact frame on screen.
+- **Sync and trims keep their timecode.** A WAV taken from a 23.976 camera now syncs at 0.000 s instead of 38 s early, and a trimmed clip keeps the camera's timecode, moved to its new first frame.
+- **A simpler Studio.** Three Quick Recipes, with **On-Set Fast Turnaround** now boom WAV → transcript. **Convert & Compress** leads the Studio Tools, **Whisper Subtitles** (Transcribe) comes third, proxies come in **1080p or 720p**, and **Bigger transcript** keeps the monitor as large as the space allows.
+- **Says it like an editor.** Voiceovers read WAV as "wave", Rec.709 as "rec seven o nine", 1080p as "ten eighty p" and 720p as "seven twenty p".
+- **Fixes.** A voiceover saved to a folder that doesn't exist yet now creates it instead of failing with "The source file was moved or deleted.", and a voiceover with a saved blend no longer fails on its first run.
+
 ### v1.2.0
 - **36 Roat Studio Looks.** Four original looks (Clean Contrast, Warm Film, Teal & Amber, Nordic Matte), each as a Rec.709 finishing look and matched to all eight log cameras, in every LUT menu.
 - **Your LUT library, and looks fitted from it.** Point Settings → **LUT Library** at your own `.cube` folders and they appear under **My Custom LUTs**, grouped by pack and camera. The **Mimic Engine** measures them, removes each camera's log curve, fits a smooth tone, split-tone and colour response, and builds new 33³ looks from those numbers on your computer only: nothing from your packs is copied, bundled or uploaded.
@@ -169,22 +179,22 @@ Roat is a desktop editing-prep studio: sync and cut multi-camera shoots, clean u
 
 ### 1. The Studio
 One window, four parts:
-- **Dock (left):** the Quick Recipes, the seven Studio Tools, and **More tools** (every earlier Media Studio tool).
-- **Monitor (centre):** plays the clip with a draggable **Log / Rec.709 before-and-after wipe**, a luma waveform, loudness and clip details, and a **lossless keyframe trim bar** for In / Out.
+- **Dock (left):** the Quick Recipes, the Studio Tools, and **More tools** (Trim / Cut, Merge Clips, Stems & Channels, Workflows).
+- **Monitor (centre):** plays the clip with a draggable **Log / Rec.709 before-and-after wipe**, a luma waveform, loudness and clip details, and a **lossless keyframe trim bar** for In / Out with a frame-accurate playhead (**← / →** step one frame).
 - **Inspector (right):** every setting for the recipe or tool you picked, and a live list of the files the run will write.
-- **Drawer (bottom):** **Batch Queue** (progress per clip and step), **Transcript** (click a line to jump to it, or to cut it) and **Deliverables** (every finished file, with **Open** and **Show in folder**).
+- **Drawer (bottom):** **Batch Queue** (progress per clip and step), **Transcript** (strike out words or lines, collapse long pauses, preview the edit) and **Deliverables** (every finished file, with **Open** and **Show in folder**).
 
-**Five Quick Recipes** run a whole job from one click:
+**Three Quick Recipes** run a whole job from one click:
 
 | Recipe | What it chains |
 |---|---|
-| **On-Set Fast Turnaround** | mastered audio and a Whisper `.srt` / `.txt` for the producer, a constant-frame-rate LUT proxy for the editor |
+| **On-Set Fast Turnaround** | the cleanest boom track as a centred 48 kHz stereo WAV, then its Whisper `.srt` / `.txt` |
 | **Multi-Cam Shoot Sync & Proxy** | timecode or audio sync, proxies, a synced Resolve / Premiere timeline (with Auto-Cut if you like) |
-| **OBS / Screen-Recording Fixer** | VFR → CFR, DeepFilterNet3 voice isolation with Warm Broadcast EQ at −16 LUFS, captions |
 | **Interview / Dialogue Prep** | lossless keyframe trim, dialogue clean-up, transcript, silence-cut timelines |
-| **Social / Delivery Finish** | 3D LUT grade, −16 LUFS master, burned-in captions |
 
-**Seven Studio Tools:** Trim & Proxy · Multi-Cam Sync · VFR → CFR · Audio Cleanup & Master · Whisper Subtitles · AI Voiceover & Dubbing · 3D LUT Grading.
+**Studio Tools:** Convert & Compress · Trim & Proxy · Whisper Subtitles (Transcribe) · Multi-Cam Sync · VFR → CFR · Audio Cleanup & Master · AI Voiceover & Dubbing.
+
+**Camera cards:** add a multi-track `.mxf` and Roat measures every track, extracts the cleanest boom as a centred stereo WAV and plays it, keeping the card ready to convert.
 
 ### 2. Multi-cam sync, Auto-Cut and NLE timelines
 - **Sync up to 16 cameras and recorders** by timecode or by their audio, with match-confidence and clock-drift badges.
@@ -203,19 +213,21 @@ One window, four parts:
 
 ### 3. Transcript and text-based editing
 - **Offline transcription** with **whisper.cpp**, on the GPU (Apple Silicon Metal or NVIDIA CUDA) or the CPU:
-  - three models: **Roat Swift**, **Roat Studio** and **Roat Cinema Master**;
+  - seven models, from **Swift English** to **Master Archival**, with a **Domain Vocabulary** for names and acronyms;
   - exports as `.txt`, `.pdf`, `.docx`, `.srt` and `.vtt`;
   - **Translation Mode:** translate to English, or keep both languages on every line.
 - **Edit by text:**
+  - Every word is timed: strike out a word or a whole line, and **Collapse pauses longer than** 0.5–3 s shrinks dead air to a short breath.
+  - The **Edited Timeline** shows what goes, and **▶ Preview edit** plays only what stays.
   - Play or jump to any line; cut, mute or bleep it.
   - **Sweep Fillers / Keywords** marks every "um", "uh" or chosen word at once.
   - Label and rename speakers.
-  - **Export Edited Media** renders the recording without the cut lines, with a re-timed `.srt`.
+  - **Export Edited Media** renders the edit with a re-timed `.srt`, or hand the same cuts to Premiere Pro or Resolve as a timeline.
 - **Captions:** burn them in as **Cinema Classic**, **High-Contrast Yellow** or **Boxed Background**, with placement, size and punchy **short-burst** options (or two-line bilingual captions). Or add any `.srt` / `.vtt` / `.ass` as a toggleable track.
 - **Publish:** copy **YouTube chapters**, or save **show notes** as Markdown.
 
 ### 4. Voice, audio polish and the Roat Voca handoff
-- **AI voiceover and dubbing, made on your computer:** **Kokoro-82M** with **18 voices** (12 Kokoro voices and 6 Voice Lab voices).
+- **AI voiceover and dubbing, made on your computer:** **Kokoro-82M** with **22 voices** (16 Kokoro voices and 6 Voice Lab voices) and a **Voice Blender** to mix two of them.
   - Read a script, including two-voice dialogue with `[Host]:` / `[Guest]:` tags and `[pause 0.5s]` breaths.
   - Or dub a video from a transcript or an SRT / VTT file, every line on its own cue.
 - **Clean Up Audio:**
@@ -238,7 +250,7 @@ One window, four parts:
   - lock variable frame rate (phones, screen recordings) to CFR;
   - tone-map HDR to SDR;
   - **auto-crop black bars**.
-- **Editor proxies:** 1080p **ProRes Proxy** or fast **H.264**, keeping the source timecode, with an optional LUT and a clip-name and timecode burn-in.
+- **Editor proxies:** 1080p or 720p **ProRes Proxy** or fast **H.264**, keeping the source timecode, with an optional LUT and a clip-name and timecode burn-in.
 - **Masters and delivery:**
   - **ProRes** (422 Proxy to 4444) and **DNxHR** with 24-bit PCM audio;
   - **AV1** (optionally to a target file size);
@@ -247,12 +259,11 @@ One window, four parts:
 - **Built for cinema camera files:** ProRes, DNxHR, 10-bit 4:2:2 and multi-track 24-bit audio in `.mov` / `.mxf` / `.mp4`, including 200 GB+ files.
 
 ### 6. More tools
-- **Convert & Compress, Trim / Cut, Merge Clips, Split Chapters:** without re-encoding where possible.
+- **Convert & Compress, Trim / Cut, Merge Clips:** without re-encoding where possible.
 - **Video tools:**
   - **Multi-Cam / PiP** and split-screen layouts;
   - **Chapters & Tags** (and a GPS / camera-metadata scrub);
-  - **Privacy Blur**;
-  - **Scenes** (split at cuts, trim black or frozen ends).
+  - **Privacy Blur**.
 - **Picture and audio exports:**
   - **Contact Sheet** and best thumbnail;
   - **GIF / WebP Loop**;
