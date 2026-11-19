@@ -4,7 +4,7 @@
 
 Roat downloads online video, converts and cleans up your own media (including 200 GB+ cinema camera files), transcribes speech, and turns scripts and subtitles into natural voiceovers. All of it happens on your computer. Nothing is uploaded, there are no accounts, and there is no telemetry.
 
-**[⬇ Download the latest release](https://github.com/angelitojusay/roat/releases/latest)** · current version **v1.2.0**
+**[⬇ Download the latest release](https://github.com/angelitojusay/roat/releases/latest)** · current version **v1.2.1**
 
 ## What's new
 
@@ -133,8 +133,8 @@ Roat downloads online video, converts and cleans up your own media (including 20
 
 | Platform | File | Notes |
 |---|---|---|
-| Windows 10/11 (x64) | [Roat-1.2.0-win-x64.exe](https://github.com/angelitojusay/roat/releases/download/v1.2.0/Roat-1.2.0-win-x64.exe) | Installer (recommended) |
-| Windows 10/11 (x64) | [Roat-1.2.0-portable.exe](https://github.com/angelitojusay/roat/releases/download/v1.2.0/Roat-1.2.0-portable.exe) | Portable, no install |
+| Windows 10/11 (x64) | [Roat-1.2.1-win-x64.exe](https://github.com/angelitojusay/roat/releases/download/v1.2.1/Roat-1.2.1-win-x64.exe) | Installer (recommended) |
+| Windows 10/11 (x64) | [Roat-1.2.1-portable.exe](https://github.com/angelitojusay/roat/releases/download/v1.2.1/Roat-1.2.1-portable.exe) | Portable, no install |
 
 ### macOS
 
@@ -150,8 +150,8 @@ The [script](https://github.com/angelitojusay/roat/blob/main/install.sh) downloa
 
 | Platform | File | Notes |
 |---|---|---|
-| macOS 13+, Apple Silicon (M1 and later) | [Roat-1.2.0-mac-arm64.dmg](https://github.com/angelitojusay/roat/releases/download/v1.2.0/Roat-1.2.0-mac-arm64.dmg) | Disk image |
-| macOS 13+, Intel | [Roat-1.2.0-mac-x64.dmg](https://github.com/angelitojusay/roat/releases/download/v1.2.0/Roat-1.2.0-mac-x64.dmg) | Disk image |
+| macOS 13+, Apple Silicon (M1 and later) | [Roat-1.2.1-mac-arm64.dmg](https://github.com/angelitojusay/roat/releases/download/v1.2.1/Roat-1.2.1-mac-arm64.dmg) | Disk image |
+| macOS 13+, Intel | [Roat-1.2.1-mac-x64.dmg](https://github.com/angelitojusay/roat/releases/download/v1.2.1/Roat-1.2.1-mac-x64.dmg) | Disk image |
 
 Drag Roat to Applications and open it. Roat isn't notarized yet, so if macOS says **"Roat is damaged and can't be opened"**, run this in Terminal; it fixes it immediately, then open Roat normally:
 
@@ -161,7 +161,7 @@ xattr -cr /Applications/Roat.app
 
 The message comes from the browser's download quarantine, not from a broken file.
 
-SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roat/releases/download/v1.2.0/SHA256SUMS-windows.txt) · [SHA256SUMS-macos.txt](https://github.com/angelitojusay/roat/releases/download/v1.2.0/SHA256SUMS-macos.txt). All releases are listed on the [Releases page](https://github.com/angelitojusay/roat/releases). Inside the app, **Settings → About → Check for Updates** tells you when a new version is out, and **Install Update Now** downloads, verifies and installs it for you.
+SHA-256 checksums: [SHA256SUMS-windows.txt](https://github.com/angelitojusay/roat/releases/download/v1.2.1/SHA256SUMS-windows.txt) · [SHA256SUMS-macos.txt](https://github.com/angelitojusay/roat/releases/download/v1.2.1/SHA256SUMS-macos.txt). All releases are listed on the [Releases page](https://github.com/angelitojusay/roat/releases). Inside the app, **Settings → About → Check for Updates** tells you when a new version is out, and **Install Update Now** downloads, verifies and installs it for you.
 
 ## What Roat does
 
@@ -298,7 +298,7 @@ shasum -a 256 -c SHA256SUMS-macos.txt --ignore-missing
 Windows (PowerShell), then compare with `SHA256SUMS-windows.txt`:
 
 ```powershell
-Get-FileHash .\Roat-1.2.0-win-x64.exe -Algorithm SHA256
+Get-FileHash .\Roat-1.2.1-win-x64.exe -Algorithm SHA256
 ```
 
 ## Privacy
