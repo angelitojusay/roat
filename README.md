@@ -8,6 +8,10 @@ Roat downloads online video, converts and cleans up your own media (including 20
 
 ## What's new
 
+### v1.2.2
+- **Clip downloads work on macOS.** Downloading part of a video (Web Import → Clip) failed on Macs with "yt-dlp could not read this link." The bundled ffmpeg, which fetches the clip, couldn't find the Mac's certificate store; Roat now points it at the one macOS ships with (`/etc/ssl/cert.pem`), unless you've set your own. Windows is unchanged.
+- **Clearer clip-download errors.** When ffmpeg fails while fetching a clip, its real error now reaches the queue, and a certificate problem (a wrong clock, a VPN, a proxy or a network filter) says so instead of "yt-dlp could not read this link."
+
 ### v1.2.1
 - **The cleanest microphone, found for you.** Roat measures every audio track of a multi-track file (a Sony FX6 MXF records eight) and picks the clean boom over the noisy scratch mics, silent channels and duplicates. Track menus now say which is cleanest, noisier, silent or the same mic twice.
 - **Camera cards in, clean boom WAV out.** Drop an `.mxf` into the Studio and Roat extracts its cleanest track as a centred 48 kHz stereo WAV, with the voice in both ears, and keeps the card ready to convert. A mono boom now centres too, and **Center Dual-Mono** can write the audio alone.
